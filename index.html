@@ -82,22 +82,42 @@ footer{    text-align:center;    padding:25px;    color:#65767b;}
 <div class="step-box">
 <div class="step-title">Passo 1: Estado Geral e Nível de Consciência</div>
 <p class="small">Avalie a orientação, coloração, respiração, temperatura e comportamento no momento da visita.</p>
-<label>Seleção Rápida de Termos:</label>
-<select id="eg_consciencia">
-<option value="lúcido e orientado no tempo e espaço">Lúcido e orientado no tempo e espaço</option>
-<option value="sonolento, porém reativo a estímulos">Sonolento, reativo a estímulos</option>
-<option value="desorientado no tempo e espaço">Desorientado no tempo e espaço</option>
-</select>
-<select id="eg_pele">
-<option value="anictérico, afebril, acianótico">Anictérico, afebril, acianótico</option>
-<option value="ictérico, febril">Ictérico e febril</option>
-<option value="hipocorado, cianótico">Hipocorado e cianótico</option>
-</select>
-<select id="eg_resp">
-<option value="eupneico, calmo e comunicativo">Eupneico, calmo e comunicativo</option>
-<option value="dispneico, agitado">Dispneico, agitado</option>
-<option value="taquipneico em ar ambiente">Taquipneico em ar ambiente</option>
-</select>
+
+<div class="grupo-anatomico">
+<label class="titulo-grupo">Nível de Consciência e Estado Geral:</label>
+<div class="opcoes-selecao">
+<label><input type="checkbox" name="eg_consciencia" value="lúcido e orientado no tempo e espaço"> Lúcido e orientado no tempo e espaço</label>
+<label><input type="checkbox" name="eg_consciencia" value="sonolento, porém reativo a estímulos"> Sonolento, reativo a estímulos</label>
+<label><input type="checkbox" name="eg_consciencia" value="desorientado no tempo e espaço"> Desorientado no tempo e espaço</label>
+<label><input type="checkbox" name="eg_consciencia" value="torporoso"> Torporoso</label>
+<label><input type="checkbox" name="eg_consciencia" value="comatoso"> Comatoso</label>
+</div>
+</div>
+
+<div class="grupo-anatomico">
+<label class="titulo-grupo">Pele e Mucosas Gerais:</label>
+<div class="opcoes-selecao">
+<label><input type="checkbox" name="eg_pele" value="anictérico"> Anictérico</label>
+<label><input type="checkbox" name="eg_pele" value="ictérico"> Ictérico</label>
+<label><input type="checkbox" name="eg_pele" value="afebril"> Afebril</label>
+<label><input type="checkbox" name="eg_pele" value="febril"> Febril</label>
+<label><input type="checkbox" name="eg_pele" value="acianótico"> Acianótico</label>
+<label><input type="checkbox" name="eg_pele" value="cianótico"> Cianótico</label>
+<label><input type="checkbox" name="eg_pele" value="normocorado"> Normocorado</label>
+<label><input type="checkbox" name="eg_pele" value="hipocorado"> Hipocorado</label>
+</div>
+</div>
+
+<div class="grupo-anatomico">
+<label class="titulo-grupo">Padrão Respiratório Geral:</label>
+<div class="opcoes-selecao">
+<label><input type="checkbox" name="eg_resp" value="eupneico em ar ambiente"> Eupneico em ar ambiente</label>
+<label><input type="checkbox" name="eg_resp" value="dispneico"> Dispneico</label>
+<label><input type="checkbox" name="eg_resp" value="taquipneico"> Taquipneico</label>
+<label><input type="checkbox" name="eg_resp" value="calmo e comunicativo"> Calmo e comunicativo</label>
+<label><input type="checkbox" name="eg_resp" value="agitado"> Agitado</label>
+</div>
+</div>
 </div>
 
 <div class="step-box">
@@ -112,14 +132,46 @@ footer{    text-align:center;    padding:25px;    color:#65767b;}
 • <strong>Halitose:</strong> Mau hálito.
 </div>
 <br>
-<select id="cef_geral">
-<option value="couro cabeludo íntegro, esclerótica anictérica, pupilas isocóricas e fotorreativas. MMOO normocromicas.">Couro cabeludo integro, esclerótica anictérica, pupilas isocóricas e fotorreativas, MMOO normocoradas.</option>
-<option value="presença de lesão em couro cabeludo, pupilas anisocóricas, MMOO hipocoradas.">Com lesão no couro cabeludo, pupilas anisocóricas, MMOO hipocoradas.</option>
-</select>
-<select id="cef_oral">
-<option value="cavidade oral com ausência de dentição parcial, halitose, língua saburrosa. Ausência de gânglios palpáveis em região occipito e inframandibular.">Ausência de dentição parcial, halitose, língua saburrosa, sem gânglios palpáveis em região occipto infra-mandibular.</option>
-<option value="cavidade oral sem anormalidades, mucosa úmida e corada.">Cavidade oral íntegra, mucosa úmida e corada.</option>
-</select>
+
+<div class="grupo-anatomico">
+<label class="titulo-grupo">Couro Cabeludo:</label>
+<div class="opcoes-selecao">
+<label><input type="checkbox" name="couro_cabeludo" value="íntegro"> Íntegro</label>
+<label><input type="checkbox" name="couro_cabeludo" value="com presença de hematoma"> Presença de hematoma</label>
+<label><input type="checkbox" name="couro_cabeludo" value="com presença de escoriações"> Presença de escoriações</label>
+<label><input type="checkbox" name="couro_cabeludo" value="com presença de laceração"> Presença de laceração</label>
+<label><input type="checkbox" name="couro_cabeludo" value="com presença de lesão"> Presença de lesão</label>
+</div>
+</div>
+
+<div class="grupo-anatomico">
+<label class="titulo-grupo">Olhos e Pupilas:</label>
+<div class="opcoes-selecao">
+<label><input type="checkbox" name="pupilas" value="isocóricas"> Isocóricas</label>
+<label><input type="checkbox" name="pupilas" value="anisocóricas"> Anisocóricas</label>
+<label><input type="checkbox" name="pupilas" value="mióticas"> Miose</label>
+<label><input type="checkbox" name="pupilas" value="midriáticas"> Midríase</label>
+<label><input type="checkbox" name="pupilas" value="fotorreativas"> Fotorreativas</label>
+<label><input type="checkbox" name="pupilas" value="não fotorreativas"> Não fotorreativas</label>
+<label><input type="checkbox" name="pupilas" value="escleróticas anictéricas"> Escleróticas anictéricas</label>
+<label><input type="checkbox" name="pupilas" value="escleróticas ictéricas"> Escleróticas ictéricas</label>
+</div>
+</div>
+
+<div class="grupo-anatomico">
+<label class="titulo-grupo">Cavidade Oral e Linfonodos:</label>
+<div class="opcoes-selecao">
+<label><input type="checkbox" name="cavidade_oral" value="cavidade oral íntegra"> Cavidade oral íntegra</label>
+<label><input type="checkbox" name="cavidade_oral" value="mucosa úmida e corada"> Mucosa úmida e corada</label>
+<label><input type="checkbox" name="cavidade_oral" value="MMOO normocoradas"> MMOO normocoradas</label>
+<label><input type="checkbox" name="cavidade_oral" value="MMOO hipocoradas"> MMOO hipocoradas</label>
+<label><input type="checkbox" name="cavidade_oral" value="ausência de dentição parcial"> Ausência de dentição parcial</label>
+<label><input type="checkbox" name="cavidade_oral" value="ausência total de dentição"> Prótese / Ausência total de dentição</label>
+<label><input type="checkbox" name="cavidade_oral" value="presença de halitose"> Halitose</label>
+<label><input type="checkbox" name="cavidade_oral" value="língua saburrosa"> Língua saburrosa</label>
+<label><input type="checkbox" name="cavidade_oral" value="ausência de gânglios palpáveis em região occipito e inframandibular"> Sem gânglios palpáveis em região occipito e inframandibular</label>
+</div>
+</div>
 </div>
 
 <div class="step-box">
@@ -128,18 +180,33 @@ footer{    text-align:center;    padding:25px;    color:#65767b;}
 <div class="sigla-list">
 💡 <strong>Legenda de Siglas:</strong><br>
 • <strong>MVBD:</strong> Murmúrios Vesiculares Bem Distribuidos.<br>
-• <strong>RA:</strong> Ruídos Adventícios (roncos, meios, sibilos).<br>
+• <strong>RA:</strong> Ruídos Adventícios (roncos, estertores, sibilos).<br>
 • <strong>BCNF:</strong> Bulhas Cardíacas Normofonéticas em 2 tempos (B1 e B2).
 </div>
 <br>
-<select id="torax_resp">
-<option value="tórax simétrico, expansivo, MVBD sem RA, expansividade torácica preservada.">Tórax simétrico, MVBD sem RA, expansividade preservada.</option>
-<option value="tórax simétrico, MVBD com presença de ruidos adventícios (sibilos).">Tórax simétrico, MVBD com RA (sibilos).</option>
-</select>
-<select id="torax_cardio">
-<option value="BCNF em dois tempos (B1 e B2), sem sopros.">BCNF em 2T (B1 e B2), sem sopros.</option>
-<option value="taquicárdico, BCNF em 2T.">Taquicárdico, BCNF em 2T.</option>
-</select>
+
+<div class="grupo-anatomico">
+<label class="titulo-grupo">Aparelho Respiratório / Tórax:</label>
+<div class="opcoes-selecao">
+<label><input type="checkbox" name="torax_resp" value="tórax simétrico"> Tórax simétrico</label>
+<label><input type="checkbox" name="torax_resp" value="expansividade torácica preservada"> Expansividade preservada</label>
+<label><input type="checkbox" name="torax_resp" value="MVBD sem RA"> MVBD sem RA</label>
+<label><input type="checkbox" name="torax_resp" value="MVBD com presença de ruidos adventícios (sibilos)"> MVBD com RA (sibilos)</label>
+<label><input type="checkbox" name="torax_resp" value="MVBD com presença de ruidos adventícios (roncos)"> MVBD com RA (roncos)</label>
+<label><input type="checkbox" name="torax_resp" value="MVBD com presença de ruidos adventícios (estertores)"> MVBD com RA (estertores)</label>
+</div>
+</div>
+
+<div class="grupo-anatomico">
+<label class="titulo-grupo">Aparelho Cardiovascular:</label>
+<div class="opcoes-selecao">
+<label><input type="checkbox" name="torax_cardio" value="BCNF em 2T (B1 e B2)"> BCNF em 2T (B1 e B2)</label>
+<label><input type="checkbox" name="torax_cardio" value="ritmo cardíaco regular"> Ritmo cardíaco regular</label>
+<label><input type="checkbox" name="torax_cardio" value="sem sopros"> Sem sopros</label>
+<label><input type="checkbox" name="torax_cardio" value="taquicárdico"> Taquicárdico</label>
+<label><input type="checkbox" name="torax_cardio" value="bradicárdico"> Bradicárdico</label>
+</div>
+</div>
 </div>
 
 <div class="step-box">
@@ -151,24 +218,58 @@ footer{    text-align:center;    padding:25px;    color:#65767b;}
 • <strong>Timpânico:</strong> Som característico de presença de gases.
 </div>
 <br>
-<select id="abd_geral">
-<option value="abdome globoso, timpânico, RHA+.">Abdome globoso, timpânico, RHA+.</option>
-<option value="abdome plano, flácido, indolor à palpação, RHA+.">Abdome plano, flácido, indolor, RHA+.</option>
-<option value="abdome distendido, doloroso à palpação, RHA diminuídos.">Abdome distendido, doloroso, RHA diminuídos.</option>
-</select>
-<select id="gen_elim">
-<option value="genitália aparentemente íntegra, eliminações intestinais e vesicais presentes e sem anormalidades.">Genitália íntegra, eliminações intestinais e vesicais presentes e sem anormalidades.</option>
-<option value="eliminações vesicais via sonda vesical de demora (SVD) com urina colúrica, eliminações intestinais ausentes.">SVD com urina colúrica, eliminações intestinais ausentes.</option>
-</select>
+
+<div class="grupo-anatomico">
+<label class="titulo-grupo">Exame do Abdome:</label>
+<div class="opcoes-selecao">
+<label><input type="checkbox" name="abdome" value="abdome plano"> Abdome plano</label>
+<label><input type="checkbox" name="abdome" value="abdome globoso"> Abdome globoso</label>
+<label><input type="checkbox" name="abdome" value="abdome distendido"> Abdome distendido</label>
+<label><input type="checkbox" name="abdome" value="flácido"> Flácido</label>
+<label><input type="checkbox" name="abdome" value="indolor à palpação"> Indolor à palpação</label>
+<label><input type="checkbox" name="abdome" value="doloroso à palpação"> Doloroso à palpação</label>
+<label><input type="checkbox" name="abdome" value="timpânico"> Timpânico</label>
+<label><input type="checkbox" name="abdome" value="RHA+"> RHA+</label>
+<label><input type="checkbox" name="abdome" value="RHA diminuídos"> RHA diminuídos</label>
+<label><input type="checkbox" name="abdome" value="RHA ausentes"> RHA ausentes</label>
+</div>
+</div>
+
+<div class="grupo-anatomico">
+<label class="titulo-grupo">Genitália e Eliminações:</label>
+<div class="opcoes-selecao">
+<label><input type="checkbox" name="genitalia_elim" value="genitália aparentemente íntegra"> Genitália aparentemente íntegra</label>
+<label><input type="checkbox" name="genitalia_elim" value="eliminações intestinais e vesicais presentes e sem anormalidades"> Eliminações intestinais e vesicais presentes e sem anormalidades</label>
+<label><input type="checkbox" name="genitalia_elim" value="eliminações vesicais via sonda vesical de demora (SVD)"> Diurese via SVD</label>
+<label><input type="checkbox" name="genitalia_elim" value="urina colúrica"> Urina colúrica</label>
+<label><input type="checkbox" name="genitalia_elim" value="urina com hematúria"> Urina com hematúria</label>
+<label><input type="checkbox" name="genitalia_elim" value="eliminações intestinais ausentes"> Eliminações intestinais ausentes</label>
+</div>
+</div>
 </div>
 
 <div class="step-box">
 <div class="step-title">Passo 5: Extremidades e Sinais Vitais</div>
-<select id="ext_sinais">
-<option value="MMSS e MMII íntegros, bem perfundidos e sem anormalidades.">MMSS e MMII íntegros e sem anormalidades.</option>
-<option value="MMII com edema (+2/+4), sem lesões. MMSS íntegros.">MMII com edema, MMSS íntegros.</option>
-</select>
+
+<div class="grupo-anatomico">
+<label class="titulo-grupo">Extremidades:</label>
+<div class="opcoes-selecao">
+<label><input type="checkbox" name="extremidades" value="MMSS e MMII íntegros"> MMSS e MMII íntegros</label>
+<label><input type="checkbox" name="extremidades" value="bem perfundidos"> Bem perfundidos</label>
+<label><input type="checkbox" name="extremidades" value="sem anormalidades"> Sem anormalidades</label>
+<label><input type="checkbox" name="extremidades" value="MMSS íntegros"> MMSS íntegros</label>
+<label><input type="checkbox" name="extremidades" value="MMII com edema (+1/+4)"> MMII com edema (+1/+4)</label>
+<label><input type="checkbox" name="extremidades" value="MMII com edema (+2/+4)"> MMII com edema (+2/+4)</label>
+<label><input type="checkbox" name="extremidades" value="MMII com edema (+3/+4)"> MMII com edema (+3/+4)</label>
+<label><input type="checkbox" name="extremidades" value="MMII com edema (+4/+4)"> MMII com edema (+4/+4)</label>
+<label><input type="checkbox" name="extremidades" value="sem lesões em membros"> Sem lesões em membros</label>
+</div>
+</div>
+
+<div class="grupo-anatomico">
+<label class="titulo-grupo">Sinais Vitais:</label>
 <input id="ssvv_texto" type="text" value="Sinais vitais verificados: PA: 120x80 mmHg, Pulso: 78 bpm, Temp: 36.5 °C, SatO2: 98%.">
+</div>
 </div>
 
 <button onclick="gerarEvolucao()">⚡ Gerar Texto de Evolução</button>

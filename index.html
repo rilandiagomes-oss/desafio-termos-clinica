@@ -489,7 +489,7 @@ const termos = [
 {termo:"Halitose",significado:"Odor desagradável ou fétido emanado da cavidade oral.",categoria:"Exame físico",pesquisa:"mau halito bafinho hálito ruim hálito fétido"},
 {termo:"Prurido",significado:"Sensação desagradável na pele que provoca o desejo incontrolável de coçar.",categoria:"Geral/Musculoesquelético",pesquisa:"coceira na pele coceira intensa urticaria"},
 {termo:"Glútea",significado:"Referente ou pertencente à região das nádegas.",categoria:"Geral/Musculoesquelético",pesquisa:"nadegas bumbum região glútea"},
-{termo:"Asthenia",significado:"Sensação de fraqueza física generalizada, perda de força e fadiga.",categoria:"Geral/Musculoesquelético",pesquisa:"fraqueza no corpo corpo mole moleza sem força"},
+{termo:"Astenia",significado:"Sensação de fraqueza física generalizada, perda de força e fadiga.",categoria:"Geral/Musculoesquelético",pesquisa:"fraqueza no corpo corpo mole moleza sem força"},
 {termo:"Mialgia",significado:"Dor localizada ou difusa na musculatura esquelética.",categoria:"Geral/Musculoesquelético",pesquisa:"dor nos musculos dor no corpo musculatura doendo"},
 {termo:"Artralgia",significado:"Dor em uma ou mais articulações do corpo sem sinais inflamatórios evidentes.",categoria:"Geral/Musculoesquelético",pesquisa:"dor nas juntas dor na articulação"},
 
@@ -519,6 +519,96 @@ const errosProntuario = [
 { texto: "Anotação de enfermagem descreve paciente apresentando vômito composto por conteúdo alimentar e estrias de sangue vermelho. O registro utilizou o termo <strong>HEMOPTISE</strong>.", errado: "Hemoptise", correto: "Hematêmese", explicacao: "Hemoptise é a eliminação de sangue proveniente do pulmão através da tosse. Vômito com sangue chama-se <strong>Hematêmese</strong>." },
 { texto: "Anotado no prontuário que o paciente apresenta coloração amarelada na pele e na esclera decorrente de disfunção hepática, utilizando o termo <strong>CIANOSE</strong>.", errado: "Cianose", correto: "Icterícia", explicacao: "Cianose é a coloração azulada/arroxeada por falta de oxigênio. A coloração amarelada de pele e olhos chama-se <strong>Icterícia</strong>." },
 { texto: "O paciente refere não conseguir evacuar há 5 dias e sentir a barriga dura e dolorida. A anotação descreveu o quadro como <strong>DIARREIA</strong>.", errado: "Diarreia", correto: "Constipação", explicacao: "Diarreia é o aumento da frequência e liquidez das fezes. A retenção ou dificuldade prolongada para evacuar é chamada de <strong>Constipação</strong>." }
+{
+    texto: "Paciente deu entrada com padrão respiratório acelerado e profundo, registrando frequência respiratória de 28 incursões por minuto. A anotação descreveu o quadro como <strong>BRADIPNEIA</strong>.",
+    errado: "Bradipneia",
+    correto: "Taquipneia",
+    explicacao: "Bradipneia é a respiração lenta (abaixo do normal). O aumento da frequência respiratória acima de 20 irpm é denominado <strong>Taquipneia</strong>."
+  },
+  {
+    texto: "Paciente internado relata incapacidade total de urinar ao longo de todo o plantão de 12 horas. A anotação de enfermagem registrou que o paciente apresentava <strong>DISÚRIA</strong>.",
+    errado: "Disúria",
+    correto: "Anúria",
+    explicacao: "Disúria é a dor ou desconforto ao urinar. A ausência total de eliminação urinária ou volume inferior a 100 mL/24h chama-se <strong>Anúria</strong>."
+  },
+  {
+    texto: "Durante o banho no leito, notou-se coloração azulada/arroxeada nas extremidades dos dedos e lábios do paciente. O técnico registrou a presença de <strong>ICTERÍCIA</strong>.",
+    errado: "Icterícia",
+    correto: "Cianose",
+    explicacao: "Icterícia é a pigmentação amarelada da pele e mucosas. A coloração azulada decorrente de má perfusão ou hipóxia é chamada de <strong>Cianose</strong>."
+  },
+  {
+    texto: "Paciente acamado apresenta área vermelha, quente e dolorosa sobre a região sacra que não embranquece após a pressão. O relatório registrou como <strong>FLEBITE</strong>.",
+    errado: "Flebite",
+    correto: "Eritema",
+    explicacao: "Flebite é a inflamação de uma veia. O vermelhidão na pele por vasodilatação é denominado <strong>Eritema</strong> (ou Lesão por Pressão estágio 1)."
+  },
+  {
+    texto: "Durante a ausculta pulmonar, o enfermeiro ouviu ruídos semelhantes ao silvo de um apito durante a expiração e anotou a presença de <strong>CREPTOS</strong>.",
+    errado: "Creptos",
+    correto: "Sibilos",
+    explicacao: "Crepitantes são ruídos semelhantes ao roçar de cabelos (líquido nos alvéolos). Sons agudos como apitos por estreitamento dos brônquios são <strong>Sibilos</strong>."
+  },
+  {
+    texto: "Paciente refere sensação de falta de ar e dificuldade severa para respirar ao realizar pequenos esforços no quarto. O registro em prontuário foi de <strong>EUPNEIA</strong>.",
+    errado: "Eupneia",
+    correto: "Dispneia",
+    explicacao: "Eupneia é a respiração normal, silenciosa e sem esforço. A sensação de falta de ar ou respiração difícil é chamada de <strong>Dispneia</strong>."
+  },
+  {
+    texto: "Paciente apresentou sangramento nasal volumoso sem histórico de trauma local. O profissional registrou na evolução a ocorrência de <strong>OTORRAGIA</strong>.",
+    errado: "Otorragia",
+    correto: "Epistaxe",
+    explicacao: "Otorragia é a saída de sangue pelo conduto auditivo. O sangramento vindo das fossas nasais é denominado <strong>Epistaxe</strong>."
+  },
+  {
+    texto: "Ao aferir a pressão arterial, foi registrado o valor de 80 x 50 mmHg em paciente consciente e orientado. A evolução descreveu o quadro como <strong>HIPERTENSÃO</strong>.",
+    errado: "Hipertensão",
+    correto: "Hipotensão",
+    explicacao: "Hipertensão refere-se à pressão arterial elevada. Níveis pressóricos abaixo dos padrões normais são definidos como <strong>Hipotensão</strong>."
+  },
+  {
+    texto: "Paciente queixa-se de dor e sensação de queimação ao urinar durante todo o dia. O registro de enfermagem consta como <strong>OLIGÚRIA</strong>.",
+    errado: "Oligúria",
+    correto: "Disúria",
+    explicacao: "Oligúria é a redução do volume urinário (menos de 500 mL/dia). A dor ou dificuldade para urinar chama-se <strong>Disúria</strong>."
+  },
+  {
+    texto: "Paciente em pós-operatório apresenta inchaço acentuado por acúmulo de líquido nos membros inferiores. O técnico descreveu a presença de <strong>ISQUEMIA</strong>.",
+    errado: "Isquemia",
+    correto: "Edema",
+    explicacao: "Isquemia é a falta de suprimento sanguíneo num tecido. O acúmulo anormal de líquido nos tecidos intersticiais é chamado de <strong>Edema</strong>."
+  },
+  {
+    texto: "Paciente incapaz de manter o equilíbrio e a marcha sem apoio devido a fraqueza muscular nos membros inferiores teve seu estado registrado como <strong>AFASIA</strong>.",
+    errado: "Afasia",
+    correto: "Ataxia",
+    explicacao: "Afasia é a perda ou alteração da capacidade de linguagem/fala. A falta de coordenação motora dos movimentos e equilíbrio chama-se <strong>Ataxia</strong>."
+  },
+  {
+    texto: "Ao realizar curativo, o profissional observou presença de sangue vivo fluindo continuadamente da ferida operatória e registrou secreção <strong>PURULENTA</strong>.",
+    errado: "Purulenta",
+    correto: "Sanguinolenta",
+    explicacao: "Secreção purulenta é composta por pus (amarelo/esverdeado). A presença de sangue em uma ferida ou drenagem é chamada de secreção <strong>Sanguinolenta</strong>."
+  },
+  {
+    texto: "Paciente internado relata perda completa do apetite, recusando todas as refeições do dia. A anotação de enfermagem descreveu que o paciente apresenta <strong>HIPERFAGIA</strong>.",
+    errado: "Hiperfagia",
+    correto: "Anorexia",
+    explicacao: "Hiperfagia é o consumo exagerado de alimentos. A perda ou ausência de apetite/vontade de comer chama-se <strong>Anorexia</strong> (ou Inapetência)."
+  },
+  {
+    texto: "A anotação relata que o paciente acamado apresentou evacuação com presença de sangue vivo em quantidade moderada misturado às fezes, utilizando o termo <strong>MELENA</strong>.",
+    errado: "Melena",
+    correto: "Hematoquezia",
+    explicacao: "Melena é a eliminação de sangue digerido, fezes escuras e fétidas. A eliminação de sangue vivo pelo reto é denominada <strong>Hematoquezia</strong>."
+  },
+  {
+    texto: "Paciente evolui com temperatura corporal de 38,8 °C medida na região axilar. A equipe registrou que o paciente encontrava-se <strong>AFEBRIL</strong>.",
+    errado: "Afebril",
+    correto: "Febril",
+    explicacao: "Afebril indica que o paciente está sem febre (temperatura normal). A elevação da temperatura acima de 37,8 °C caracteriza o estado <strong>Febril</strong> (ou Pirexia)."
+  }
 ];
 
 /* NAVEGAÇÃO ENTRE TELAS */

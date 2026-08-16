@@ -1,557 +1,390 @@
-<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Clínica Médica - Termos Técnicos e Exame Físico</title>
 <style>
-*{    box-sizing:border-box;}
-body{    margin:0;    font-family:Arial, Helvetica, sans-serif;    background:#eef7f9;    color:#17323b;}
-header{    background:linear-gradient(135deg,#176b87,#4ca1af);    color:white;    text-align:center;    padding:32px 20px;}
-header h1{    margin:0 0 8px;    font-size:30px;}
-header p{    margin:0;}
-main{    max-width:1050px;    margin:25px auto;    padding:0 18px;}
-section{    display:none;}
-section.active{    display:block;}
-.card{    background:white;    border-radius:16px;    padding:22px;    margin-bottom:18px;    box-shadow:0 4px 18px rgba(0,0,0,.08);}
-.grid{    display:grid;    grid-template-columns:repeat(auto-fit,minmax(210px,1fr));    gap:14px;}
-button{    border:0;    border-radius:10px;    padding:14px 17px;    background:#176b87;    color:white;    font-weight:bold;    cursor:pointer;    font-size:15px;}
-button:hover{    filter:brightness(.94);}
-.secondary{    background:#e6f1f4;    color:#176b87;}
-input,select,textarea{    width:100%;    padding:14px;    border:1px solid #cbdde2;    border-radius:10px;    font-size:16px;    margin:8px 0 15px;}
-.termcard{    border:1px solid #dce9ed;    border-radius:12px;    padding:18px;    margin:12px 0;}
-.term{    font-size:25px;    color:#176b87;    font-weight:bold;}
-.tag{    display:inline-block;    background:#e6f1f4;    color:#176b87;    padding:5px 9px;    border-radius:20px;    font-size:12px;    margin-top:5px;}
-.search-result{    background:#f2fafb;    border-left:5px solid #176b87;    padding:15px;    border-radius:10px;    margin-top:15px;}
-.option{    display:block;    width:100%;    text-align:left;    background:#f5f9fa;    color:#17323b;    border:2px solid #d8e6e9;    margin:9px 0;}
-.option.correct{    background:#e8f7ec;    color:#145a24;    border-color:#65b878;}
-.option.wrong{    background:#fff0f0;    color:#7d1515;    border-color:#df7777;}
-.feedback{    padding:12px;    border-radius:10px;    margin-top:12px;}
-.ok{    background:#e8f7ec;}
-.bad{    background:#fff0f0;}
-.score{    font-size:36px;    font-weight:bold;    color:#176b87;}
-.small{    color:#65767b;    font-size:14px;}
-footer{    text-align:center;    padding:25px;    color:#65767b;}
+*{ box-sizing:border-box;}
+body{ margin:0; font-family:Arial, Helvetica, sans-serif; background:#eef7f9; color:#17323b;}
+header{ background:linear-gradient(135deg,#176b87,#4ca1af); color:white; text-align:center; padding:32px 20px;}
+header h1{ margin:0 0 8px; font-size:30px;}
+header p{ margin:0;}
+main{ max-width:1050px; margin:25px auto; padding:0 18px;}
+section{ display:none;}
+section.active{ display:block;}
+.card{ background:white; border-radius:16px; padding:22px; margin-bottom:18px; box-shadow:0 4px 18px rgba(0,0,0,.08);}
+.grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:14px;}
+button{ border:0; border-radius:10px; padding:14px 17px; background:#176b87; color:white; font-weight:bold; cursor:pointer; font-size:15px;}
+button:hover{ filter:brightness(.94);}
+.secondary{ background:#e6f1f4; color:#176b87;}
+input,select,textarea{ width:100%; padding:14px; border:1px solid #cbdde2; border-radius:10px; font-size:16px; margin:8px 0 15px;}
+.termcard{ border:1px solid #dce9ed; border-radius:12px; padding:18px; margin:12px 0;}
+.term{ font-size:25px; color:#176b87; font-weight:bold;}
+.tag{ display:inline-block; background:#e6f1f4; color:#176b87; padding:5px 9px; border-radius:20px; font-size:12px; margin-top:5px;}
+.search-result{ background:#f2fafb; border-left:5px solid #176b87; padding:15px; border-radius:10px; margin-top:15px;}
+.option{ display:block; width:100%; text-align:left; background:#f5f9fa; color:#17323b; border:2px solid #d8e6e9; margin:9px 0;}
+.option.correct{ background:#e8f7ec; color:#145a24; border-color:#65b878;}
+.option.wrong{ background:#fff0f0; color:#7d1515; border-color:#df7777;}
+.feedback{ padding:12px; border-radius:10px; margin-top:12px;}
+.ok{ background:#e8f7ec;}
+.bad{ background:#fff0f0;}
+.score{ font-size:36px; font-weight:bold; color:#176b87;}
+.small{ color:#65767b; font-size:14px;}
+footer{ text-align:center; padding:25px; color:#65767b;}
 .mode-card{ border:2px solid #cbdde2; padding:15px; border-radius:12px; margin-bottom:12px; text-align:left; cursor:pointer;}
 .mode-card:hover{ border-color:#176b87; background:#f2fafb; }
 .prontuario-box{ background:#fffdf5; border:1px solid #e2d9b8; border-left:6px solid #e6a100; padding:18px; border-radius:8px; font-family:'Courier New', Courier, monospace; font-size:15px; margin:15px 0;}
 .step-box{ border:1px solid #cbe3e7; background:#f7fcff; padding:18px; border-radius:12px; margin-bottom:15px; }
 .step-title{ font-weight:bold; font-size:18px; color:#176b87; margin-bottom:8px; }
 .sigla-list{ background:#eef7f9; padding:10px 15px; border-radius:8px; font-size:14px; margin-top:8px; }
-</style></head>
+.grupo-anatomico { margin-top: 14px; margin-bottom: 14px; }
+.titulo-grupo { font-size: 0.95rem; font-weight: 600; color: #334155; display: block; margin-bottom: 8px; }
+.opcoes-selecao { display: flex; flex-wrap: wrap; gap: 8px; }
+.opcoes-selecao label { display: inline-flex; align-items: center; background-color: #f1f5f9; color: #334155; padding: 8px 14px; border-radius: 20px; border: 1px solid #cbd5e1; font-size: 0.88rem; font-weight: 500; cursor: pointer; user-select: none; transition: all 0.2s ease; }
+.opcoes-selecao input[type="checkbox"] { accent-color: #0284c7; width: 16px; height: 16px; margin-right: 8px; }
+.opcoes-selecao label:has(input[type="checkbox"]:checked) { background-color: #e0f2fe; border-color: #0284c7; color: #0369a1; font-weight: 600; }
+</style>
+</head>
 <body>
+
 <header>
-<h1>🩺 Clínica Médica</h1>
-<p><strong>Treinamento de Termos Técnicos & Exame Físico</strong><br>Ferramenta de auxílio na evolução e terminologia em enfermagem.</p> Desenvolvido por Profª Rilandia Lima Santos</p>
+  <h1>🩺 Clínica Médica</h1>
+  <p><strong>Treinamento de Termos Técnicos & Exame Físico</strong><br>Ferramenta de auxílio na evolução e terminologia em enfermagem.<br>Desenvolvido por Profª Rilandia Lima Santos</p>
 </header>
+
 <main>
 <!-- ================= HOME ================= -->
 <section id="home" class="active">
-<div class="card">
-<h2>Bem-vindo(a)!</h2>
-<p>Escolha uma funcionalidade para estudar ou estruturar seu atendimento:</p>
-<div class="grid">
-<button onclick="abrirTela('roteiroExame')">📋 Roteiro de Exame Físico</button>
-<button onclick="abrirTela('buscar')">🔍 Termo técnico e/ou sintoma</button>
-<button onclick="abrirTela('menuQuiz')">🎯 Modos de Quiz</button>
-<button onclick="iniciarRevisaoProntuario()">🕵️ Caça às Falhas no Prontuário</button>
-<button onclick="abrirTela('desempenho')">🏆 Meu desempenho</button>
-</div>
-</div>
+  <div class="card">
+    <h2>Bem-vindo(a)!</h2>
+    <p>Escolha uma funcionalidade para estudar ou estruturar seu atendimento:</p>
+    <div class="grid">
+      <button onclick="abrirTela('roteiroExame')">📋 Roteiro de Exame Físico</button>
+      <button onclick="abrirTela('buscar')">🔍 Termo técnico e/ou sintoma</button>
+      <button onclick="abrirTela('menuQuiz')">🎯 Modos de Quiz</button>
+      <button onclick="iniciarRevisaoProntuario()">🕵️ Caça às Falhas no Prontuário</button>
+      <button onclick="abrirTela('desempenho')">🏆 Meu desempenho</button>
+    </div>
+  </div>
 
-<div class="card">
-<h3>💡 Como funciona?</h3>
-<p><strong>Pesquisa de Termos e Sintomas:</strong></p>
-<p class="small"><em>"Utilize a barra de busca para encontrar termos pelo nome técnico (ex: Disúria) ou por linguagem leiga e sintomas populares (ex: dor ao urinar). O sistema filtrará os resultados em tempo real.
-"</em></p>
-</div>
-<div class="card">
-<h3><p><strong>Filtro por Categorias:</strong></p>
-<p class="small"><em>" Navegue pelas áreas (Gastrointestinal, Respiratório, Urinário, Neurológico, etc.) para visualizar grupos específicos de termos.
-"</em></p>
-</div>
-<div class="card">
-<h3><p><strong>Modo de Treinamento/Auditoria::</strong></p>
-<p class="small"><em>" Na seção de erros em prontuários, leia o caso clínico apresentado, identifique a inconformidade no registro e confira a explicação da terminologia correta.
-"</em></p>
-</div>
+  <div class="card">
+    <h3>💡 Como funciona?</h3>
+    <p><strong>Pesquisa de Termos e Sintomas:</strong></p>
+    <p class="small">Utilize a barra de busca para encontrar termos pelo nome técnico ou por linguagem leiga e sintomas populares. O sistema filtrará os resultados em tempo real.</p>
+  </div>
+  
+  <div class="card">
+    <h3>Filtro por Categorias:</h3>
+    <p class="small">Navegue pelas áreas (Gastrointestinal, Respiratório, Urinário, Neurológico, etc.) para visualizar grupos específicos de termos.</p>
+  </div>
+
+  <div class="card">
+    <h3>Modo de Treinamento/Auditoria:</h3>
+    <p class="small">Na seção de erros em prontuários, leia o caso clínico apresentado, identifique a inconformidade no registro e confira a explicação da terminologia correta.</p>
+  </div>
 </section>
 
-<!-- ================= ROTEIRO DE EXAME FÍSICO (NOVO) ================= -->
+<!-- ================= ROTEIRO DE EXAME FÍSICO ================= -->
 <section id="roteiroExame">
-<div class="card">
-    <style>
-/* Cole todo o código CSS aqui */
-.step-box {
-    background: #ffffff;
-    border: 1px solid #e2e8f0;
-    border-radius: 12px;
-    padding: 16px;
-    margin-bottom: 20px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-}
+  <div class="card">
+    <h2>📋 Guia e Gerador de Roteiro de Exame Físico</h2>
+    <p>Utilize o modelo estruturado passo a passo para construir a evolução de enfermagem:</p>
 
-.step-title {
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: #1e293b;
-    margin-bottom: 6px;
-}
+    <div class="step-box">
+      <div class="step-title">Passo 1: Estado Geral e Nível de Consciência</div>
+      <p class="small">Avalie a orientação, coloração, respiração, temperatura e comportamento no momento da visita.</p>
 
-.small {
-    font-size: 0.85rem;
-    color: #64748b;
-    margin-bottom: 12px;
-}
+      <div class="grupo-anatomico">
+        <label class="titulo-grupo">Nível de Consciência e Estado Geral:</label>
+        <div class="opcoes-selecao">
+          <label><input type="checkbox" name="eg_consciencia" value="lúcido e orientado no tempo e espaço"> Lúcido e orientado no tempo e espaço</label>
+          <label><input type="checkbox" name="eg_consciencia" value="sonolento, porém reativo a estímulos"> Sonolento, reativo a estímulos</label>
+          <label><input type="checkbox" name="eg_consciencia" value="desorientado no tempo e espaço"> Desorientado no tempo e espaço</label>
+          <label><input type="checkbox" name="eg_consciencia" value="torporoso"> Torporoso</label>
+          <label><input type="checkbox" name="eg_consciencia" value="comatoso"> Comatoso</label>
+        </div>
+      </div>
 
-.grupo-anatomico {
-    margin-top: 14px;
-    margin-bottom: 14px;
-}
+      <div class="grupo-anatomico">
+        <label class="titulo-grupo">Pele e Mucosas Gerais:</label>
+        <div class="opcoes-selecao">
+          <label><input type="checkbox" name="eg_pele" value="anictérico"> Anictérico</label>
+          <label><input type="checkbox" name="eg_pele" value="ictérico"> Ictérico</label>
+          <label><input type="checkbox" name="eg_pele" value="afebril"> Afebril</label>
+          <label><input type="checkbox" name="eg_pele" value="febril"> Febril</label>
+          <label><input type="checkbox" name="eg_pele" value="acianótico"> Acianótico</label>
+          <label><input type="checkbox" name="eg_pele" value="cianótico"> Cianótico</label>
+          <label><input type="checkbox" name="eg_pele" value="normocorado"> Normocorado</label>
+          <label><input type="checkbox" name="eg_pele" value="hipocorado"> Hipocorado</label>
+        </div>
+      </div>
 
-.titulo-grupo {
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: #334155;
-    display: block;
-    margin-bottom: 8px;
-}
-
-.opcoes-selecao {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-}
-
-.opcoes-selecao label {
-    display: inline-flex;
-    align-items: center;
-    background-color: #f1f5f9;
-    color: #334155;
-    padding: 8px 14px;
-    border-radius: 20px;
-    border: 1px solid #cbd5e1;
-    font-size: 0.88rem;
-    font-weight: 500;
-    cursor: pointer;
-    user-select: none;
-    transition: all 0.2s ease;
-    -webkit-tap-highlight-color: transparent;
-}
-
-.opcoes-selecao input[type="checkbox"] {
-    accent-color: #0284c7;
-    width: 16px;
-    height: 16px;
-    margin-right: 8px;
-}
-
-.opcoes-selecao label:has(input[type="checkbox"]:checked) {
-    background-color: #e0f2fe;
-    border-color: #0284c7;
-    color: #0369a1;
-    font-weight: 600;
-}
-
-#ssvv_texto {
-    width: 100%;
-    padding: 10px 12px;
-    border-radius: 8px;
-    border: 1px solid #cbd5e1;
-    font-size: 0.9rem;
-    box-sizing: border-box;
-    margin-top: 6px;
-}
-
-#ssvv_texto:focus {
-    outline: none;
-    border-color: #0284c7;
-    box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
-}
-
-.sigla-list {
-    background-color: #fffbebfb;
-    border-left: 4px solid #f59e0b;
-    padding: 10px 12px;
-    border-radius: 6px;
-    font-size: 0.85rem;
-    color: #78350f;
-    line-height: 1.4;
-}
-
-@media (max-width: 600px) {
-    .step-box {
-        padding: 12px;
-        margin-bottom: 14px;
-    }
-
-    .opcoes-selecao {
-        gap: 6px;
-    }
-
-    .opcoes-selecao label {
-        width: 100%;
-        box-sizing: border-box;
-        padding: 10px 12px;
-        font-size: 0.9rem;
-    }
-
-    .opcoes-selecao input[type="checkbox"] {
-        width: 18px;
-        height: 18px;
-    }
-}
-</style>
-<!-- AQUI COMEÇA O SEU CÓDIGO HTML -->
-
-<h2>📋 Guia e Gerador de Roteiro de Exame Físico</h2>
-<p>Utilize o modelo estruturado passo a passo para construir a evolução de enfermagem:</p>
-
-<div class="step-box">
-  <div class="step-title">Passo 1: Estado Geral e Nível de Consciência</div>
-  <p class="small">Avalie a orientação, coloração, respiração, temperatura e comportamento no momento da visita.</p>
-
-  <div class="grupo-anatomico">
-    <label class="titulo-grupo">Nível de Consciência e Estado Geral:</label>
-    <div class="opcoes-selecao">
-      <label><input type="checkbox" name="eg_consciencia" value="lúcido e orientado no tempo e espaço"> Lúcido e orientado no tempo e espaço</label>
-      <label><input type="checkbox" name="eg_consciencia" value="sonolento, porém reativo a estímulos"> Sonolento, reativo a estímulos</label>
-      <label><input type="checkbox" name="eg_consciencia" value="desorientado no tempo e espaço"> Desorientado no tempo e espaço</label>
-      <label><input type="checkbox" name="eg_consciencia" value="torporoso"> Torporoso</label>
-      <label><input type="checkbox" name="eg_consciencia" value="comatoso"> Comatoso</label>
+      <div class="grupo-anatomico">
+        <label class="titulo-grupo">Padrão Respiratório Geral:</label>
+        <div class="opcoes-selecao">
+          <label><input type="checkbox" name="eg_resp" value="eupneico em ar ambiente"> Eupneico em ar ambiente</label>
+          <label><input type="checkbox" name="eg_resp" value="dispneico"> Dispneico</label>
+          <label><input type="checkbox" name="eg_resp" value="taquipneico"> Taquipneico</label>
+          <label><input type="checkbox" name="eg_resp" value="calmo e comunicativo"> Calmo e comunicativo</label>
+          <label><input type="checkbox" name="eg_resp" value="agitado"> Agitado</label>
+        </div>
+      </div>
     </div>
-  </div>
 
-  <div class="grupo-anatomico">
-    <label class="titulo-grupo">Pele e Mucosas Gerais:</label>
-    <div class="opcoes-selecao">
-      <label><input type="checkbox" name="eg_pele" value="anictérico"> Anictérico</label>
-      <label><input type="checkbox" name="eg_pele" value="ictérico"> Ictérico</label>
-      <label><input type="checkbox" name="eg_pele" value="afebril"> Afebril</label>
-      <label><input type="checkbox" name="eg_pele" value="febril"> Febril</label>
-      <label><input type="checkbox" name="eg_pele" value="acianótico"> Acianótico</label>
-      <label><input type="checkbox" name="eg_pele" value="cianótico"> Cianótico</label>
-      <label><input type="checkbox" name="eg_pele" value="normocorado"> Normocorado</label>
-      <label><input type="checkbox" name="eg_pele" value="hipocorado"> Hipocorado</label>
+    <div class="step-box">
+      <div class="step-title">Passo 2: Segmento Cefálico e Pescoço</div>
+      <p class="small">Couro cabeludo, escleróticas, pupilas, mucosas, cavidade oral e linfonodos.</p>
+
+      <div class="sigla-list">
+        💡 <strong>Legenda de Siglas / Termos comuns:</strong><br>
+        • <strong>MMOO:</strong> Mucosas Oral e Ocular.<br>
+        • <strong>Pupilas fotorreativas:</strong> Reagem à luz contraindo.<br>
+        • <strong>Língua saburrosa:</strong> Com camada esbranquiçada/amarelada.<br>
+        • <strong>Halitose:</strong> Mau hálito.
+      </div>
+      <br>
+
+      <div class="grupo-anatomico">
+        <label class="titulo-grupo">Couro Cabeludo:</label>
+        <div class="opcoes-selecao">
+          <label><input type="checkbox" name="couro_cabeludo" value="íntegro"> Íntegro</label>
+          <label><input type="checkbox" name="couro_cabeludo" value="com presença de hematoma"> Presença de hematoma</label>
+          <label><input type="checkbox" name="couro_cabeludo" value="com presença de escoriações"> Presença de escoriações</label>
+          <label><input type="checkbox" name="couro_cabeludo" value="com presença de laceração"> Presença de laceração</label>
+          <label><input type="checkbox" name="couro_cabeludo" value="com presença de lesão"> Presença de lesão</label>
+        </div>
+      </div>
+
+      <div class="grupo-anatomico">
+        <label class="titulo-grupo">Olhos e Pupilas:</label>
+        <div class="opcoes-selecao">
+          <label><input type="checkbox" name="pupilas" value="isocóricas"> Isocóricas</label>
+          <label><input type="checkbox" name="pupilas" value="anisocóricas"> Anisocóricas</label>
+          <label><input type="checkbox" name="pupilas" value="mióticas"> Miose</label>
+          <label><input type="checkbox" name="pupilas" value="midriáticas"> Midríase</label>
+          <label><input type="checkbox" name="pupilas" value="fotorreativas"> Fotorreativas</label>
+          <label><input type="checkbox" name="pupilas" value="não fotorreativas"> Não fotorreativas</label>
+          <label><input type="checkbox" name="pupilas" value="escleróticas anictéricas"> Escleróticas anictéricas</label>
+          <label><input type="checkbox" name="pupilas" value="escleróticas ictéricas"> Escleróticas ictéricas</label>
+        </div>
+      </div>
+
+      <div class="grupo-anatomico">
+        <label class="titulo-grupo">Cavidade Oral e Linfonodos:</label>
+        <div class="opcoes-selecao">
+          <label><input type="checkbox" name="cavidade_oral" value="cavidade oral íntegra"> Cavidade oral íntegra</label>
+          <label><input type="checkbox" name="cavidade_oral" value="mucosa úmida e corada"> Mucosa úmida e corada</label>
+          <label><input type="checkbox" name="cavidade_oral" value="MMOO normocoradas"> MMOO normocoradas</label>
+          <label><input type="checkbox" name="cavidade_oral" value="MMOO hipocoradas"> MMOO hipocoradas</label>
+          <label><input type="checkbox" name="cavidade_oral" value="ausência de dentição parcial"> Ausência de dentição parcial</label>
+          <label><input type="checkbox" name="cavidade_oral" value="ausência total de dentição"> Prótese / Ausência total de dentição</label>
+          <label><input type="checkbox" name="cavidade_oral" value="presença de halitose"> Halitose</label>
+          <label><input type="checkbox" name="cavidade_oral" value="língua saburrosa"> Língua saburrosa</label>
+          <label><input type="checkbox" name="cavidade_oral" value="ausência de gânglios palpáveis em região occipito e inframandibular"> Sem gânglios palpáveis em região occipito e inframandibular</label>
+        </div>
+      </div>
     </div>
-  </div>
 
-  <div class="grupo-anatomico">
-    <label class="titulo-grupo">Padrão Respiratório Geral:</label>
-    <div class="opcoes-selecao">
-      <label><input type="checkbox" name="eg_resp" value="eupneico em ar ambiente"> Eupneico em ar ambiente</label>
-      <label><input type="checkbox" name="eg_resp" value="dispneico"> Dispneico</label>
-      <label><input type="checkbox" name="eg_resp" value="taquipneico"> Taquipneico</label>
-      <label><input type="checkbox" name="eg_resp" value="calmo e comunicativo"> Calmo e comunicativo</label>
-      <label><input type="checkbox" name="eg_resp" value="agitado"> Agitado</label>
+    <div class="step-box">
+      <div class="step-title">Passo 3: Sistema Respiratório e Cardiovascular (Tórax)</div>
+
+      <div class="sigla-list">
+        💡 <strong>Legenda de Siglas:</strong><br>
+        • <strong>MVBD:</strong> Murmúrios Vesiculares Bem Distribuidos.<br>
+        • <strong>RA:</strong> Ruídos Adventícios (roncos, estertores, sibilos).<br>
+        • <strong>BCNF:</strong> Bulhas Cardíacas Normofonéticas em 2 tempos (B1 e B2).
+      </div>
+      <br>
+
+      <div class="grupo-anatomico">
+        <label class="titulo-grupo">Aparelho Respiratório / Tórax:</label>
+        <div class="opcoes-selecao">
+          <label><input type="checkbox" name="torax_resp" value="tórax simétrico"> Tórax simétrico</label>
+          <label><input type="checkbox" name="torax_resp" value="expansividade torácica preservada"> Expansividade preservada</label>
+          <label><input type="checkbox" name="torax_resp" value="MVBD sem RA"> MVBD sem RA</label>
+          <label><input type="checkbox" name="torax_resp" value="MVBD com presença de ruidos adventícios (sibilos)"> MVBD com RA (sibilos)</label>
+          <label><input type="checkbox" name="torax_resp" value="MVBD com presença de ruidos adventícios (roncos)"> MVBD com RA (roncos)</label>
+          <label><input type="checkbox" name="torax_resp" value="MVBD com presença de ruidos adventícios (estertores)"> MVBD com RA (estertores)</label>
+        </div>
+      </div>
+
+      <div class="grupo-anatomico">
+        <label class="titulo-grupo">Aparelho Cardiovascular:</label>
+        <div class="opcoes-selecao">
+          <label><input type="checkbox" name="torax_cardio" value="BCNF em 2T (B1 e B2)"> BCNF em 2T (B1 e B2)</label>
+          <label><input type="checkbox" name="torax_cardio" value="ritmo cardíaco regular"> Ritmo cardíaco regular</label>
+          <label><input type="checkbox" name="torax_cardio" value="sem sopros"> Sem sopros</label>
+          <label><input type="checkbox" name="torax_cardio" value="taquicárdico"> Taquicárdico</label>
+          <label><input type="checkbox" name="torax_cardio" value="bradicárdico"> Bradicárdico</label>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
 
-<div class="step-box">
-  <div class="step-title">Passo 2: Segmento Cefálico e Pescoço</div>
-  <p class="small">Couro cabeludo, escleróticas, pupilas, mucosas, cavidade oral e linfonodos.</p>
+    <div class="step-box">
+      <div class="step-title">Passo 4: Abdome, Genitália e Eliminações</div>
 
-  <div class="sigla-list">
-    💡 <strong>Legenda de Siglas / Termos comuns:</strong><br>
-    • <strong>MMOO:</strong> Mucosas Oral e Ocular.<br>
-    • <strong>Pupilas fotorreativas:</strong> Reagem à luz contraindo.<br>
-    • <strong>Língua saburrosa:</strong> Com camada esbranquiçada/amarelada.<br>
-    • <strong>Halitose:</strong> Mau hálito.
-  </div>
-  <br>
+      <div class="sigla-list">
+        💡 <strong>Legenda de Siglas:</strong><br>
+        • <strong>RHA+:</strong> Ruídos Hidroaéreos Positivos (presentes).<br>
+        • <strong>Timpânico:</strong> Som característico de presença de gases.
+      </div>
+      <br>
 
-  <div class="grupo-anatomico">
-    <label class="titulo-grupo">Couro Cabeludo:</label>
-    <div class="opcoes-selecao">
-      <label><input type="checkbox" name="couro_cabeludo" value="íntegro"> Íntegro</label>
-      <label><input type="checkbox" name="couro_cabeludo" value="com presença de hematoma"> Presença de hematoma</label>
-      <label><input type="checkbox" name="couro_cabeludo" value="com presença de escoriações"> Presença de escoriações</label>
-      <label><input type="checkbox" name="couro_cabeludo" value="com presença de laceração"> Presença de laceração</label>
-      <label><input type="checkbox" name="couro_cabeludo" value="com presença de lesão"> Presença de lesão</label>
+      <div class="grupo-anatomico">
+        <label class="titulo-grupo">Exame do Abdome:</label>
+        <div class="opcoes-selecao">
+          <label><input type="checkbox" name="abdome" value="abdome plano"> Abdome plano</label>
+          <label><input type="checkbox" name="abdome" value="abdome globoso"> Abdome globoso</label>
+          <label><input type="checkbox" name="abdome" value="abdome distendido"> Abdome distendido</label>
+          <label><input type="checkbox" name="abdome" value="flácido"> Flácido</label>
+          <label><input type="checkbox" name="abdome" value="indolor à palpação"> Indolor à palpação</label>
+          <label><input type="checkbox" name="abdome" value="doloroso à palpação"> Doloroso à palpação</label>
+          <label><input type="checkbox" name="abdome" value="timpânico"> Timpânico</label>
+          <label><input type="checkbox" name="abdome" value="RHA+"> RHA+</label>
+          <label><input type="checkbox" name="abdome" value="RHA diminuídos"> RHA diminuídos</label>
+          <label><input type="checkbox" name="abdome" value="RHA ausentes"> RHA ausentes</label>
+        </div>
+      </div>
+
+      <div class="grupo-anatomico">
+        <label class="titulo-grupo">Genitália e Eliminações:</label>
+        <div class="opcoes-selecao">
+          <label><input type="checkbox" name="genitalia_elim" value="genitália aparentemente íntegra"> Genitália aparentemente íntegra</label>
+          <label><input type="checkbox" name="genitalia_elim" value="eliminações intestinais e vesicais presentes e sem anormalidades"> Eliminações intestinais e vesicais presentes e sem anormalidades</label>
+          <label><input type="checkbox" name="genitalia_elim" value="eliminações vesicais via sonda vesical de demora (SVD)"> Diurese via SVD</label>
+          <label><input type="checkbox" name="genitalia_elim" value="urina colúrica"> Urina colúrica</label>
+          <label><input type="checkbox" name="genitalia_elim" value="urina com hematúria"> Urina com hematúria</label>
+          <label><input type="checkbox" name="genitalia_elim" value="eliminações intestinais ausentes"> Eliminações intestinais ausentes</label>
+        </div>
+      </div>
     </div>
-  </div>
 
-  <div class="grupo-anatomico">
-    <label class="titulo-grupo">Olhos e Pupilas:</label>
-    <div class="opcoes-selecao">
-      <label><input type="checkbox" name="pupilas" value="isocóricas"> Isocóricas</label>
-      <label><input type="checkbox" name="pupilas" value="anisocóricas"> Anisocóricas</label>
-      <label><input type="checkbox" name="pupilas" value="mióticas"> Miose</label>
-      <label><input type="checkbox" name="pupilas" value="midriáticas"> Midríase</label>
-      <label><input type="checkbox" name="pupilas" value="fotorreativas"> Fotorreativas</label>
-      <label><input type="checkbox" name="pupilas" value="não fotorreativas"> Não fotorreativas</label>
-      <label><input type="checkbox" name="pupilas" value="escleróticas anictéricas"> Escleróticas anictéricas</label>
-      <label><input type="checkbox" name="pupilas" value="escleróticas ictéricas"> Escleróticas ictéricas</label>
+    <div class="step-box">
+      <div class="step-title">Passo 5: Extremidades e Sinais Vitais</div>
+
+      <div class="grupo-anatomico">
+        <label class="titulo-grupo">Extremidades:</label>
+        <div class="opcoes-selecao">
+          <label><input type="checkbox" name="extremidades" value="MMSS e MMII íntegros"> MMSS e MMII íntegros</label>
+          <label><input type="checkbox" name="extremidades" value="bem perfundidos"> Bem perfundidos</label>
+          <label><input type="checkbox" name="extremidades" value="sem anormalidades"> Sem anormalidades</label>
+          <label><input type="checkbox" name="extremidades" value="MMSS íntegros"> MMSS íntegros</label>
+          <label><input type="checkbox" name="extremidades" value="MMII com edema (+1/+4)"> MMII com edema (+1/+4)</label>
+          <label><input type="checkbox" name="extremidades" value="MMII com edema (+2/+4)"> MMII com edema (+2/+4)</label>
+          <label><input type="checkbox" name="extremidades" value="MMII com edema (+3/+4)"> MMII com edema (+3/+4)</label>
+          <label><input type="checkbox" name="extremidades" value="MMII com edema (+4/+4)"> MMII com edema (+4/+4)</label>
+          <label><input type="checkbox" name="extremidades" value="sem lesões em membros"> Sem lesões em membros</label>
+        </div>
+      </div>
+
+      <div class="grupo-anatomico">
+        <label class="titulo-grupo">Sinais Vitais:</label>
+        <textarea id="ssvv_texto" rows="3">Sinais vitais verificados: PA: 120x80 mmHg, Pulso: 78 bpm, Temp: 36.5 °C, SatO2: 98%.</textarea>
+      </div>
     </div>
-  </div>
 
-  <div class="grupo-anatomico">
-    <label class="titulo-grupo">Cavidade Oral e Linfonodos:</label>
-    <div class="opcoes-selecao">
-      <label><input type="checkbox" name="cavidade_oral" value="cavidade oral íntegra"> Cavidade oral íntegra</label>
-      <label><input type="checkbox" name="cavidade_oral" value="mucosa úmida e corada"> Mucosa úmida e corada</label>
-      <label><input type="checkbox" name="cavidade_oral" value="MMOO normocoradas"> MMOO normocoradas</label>
-      <label><input type="checkbox" name="cavidade_oral" value="MMOO hipocoradas"> MMOO hipocoradas</label>
-      <label><input type="checkbox" name="cavidade_oral" value="ausência de dentição parcial"> Ausência de dentição parcial</label>
-      <label><input type="checkbox" name="cavidade_oral" value="ausência total de dentição"> Prótese / Ausência total de dentição</label>
-      <label><input type="checkbox" name="cavidade_oral" value="presença de halitose"> Halitose</label>
-      <label><input type="checkbox" name="cavidade_oral" value="língua saburrosa"> Língua saburrosa</label>
-      <label><input type="checkbox" name="cavidade_oral" value="ausência de gânglios palpáveis em região occipito e inframandibular"> Sem gânglios palpáveis em região occipito e inframandibular</label>
+    <button onclick="gerarEvolucao()">⚡ Gerar Evolução</button>
+
+    <div style="margin-top:20px;">
+      <h3>Resultado da Evolução Pronta:</h3>
+      <textarea id="resultadoEvolucao" rows="8" placeholder="Clique no botão acima para gerar a evolução formatada..."></textarea>
     </div>
-  </div>
-</div>
-
-<div class="step-box">
-  <div class="step-title">Passo 3: Sistema Respiratório e Cardiovascular (Tórax)</div>
-
-  <div class="sigla-list">
-    💡 <strong>Legenda de Siglas:</strong><br>
-    • <strong>MVBD:</strong> Murmúrios Vesiculares Bem Distribuidos.<br>
-    • <strong>RA:</strong> Ruídos Adventícios (roncos, estertores, sibilos).<br>
-    • <strong>BCNF:</strong> Bulhas Cardíacas Normofonéticas em 2 tempos (B1 e B2).
-  </div>
-  <br>
-
-  <div class="grupo-anatomico">
-    <label class="titulo-grupo">Aparelho Respiratório / Tórax:</label>
-    <div class="opcoes-selecao">
-      <label><input type="checkbox" name="torax_resp" value="tórax simétrico"> Tórax simétrico</label>
-      <label><input type="checkbox" name="torax_resp" value="expansividade torácica preservada"> Expansividade preservada</label>
-      <label><input type="checkbox" name="torax_resp" value="MVBD sem RA"> MVBD sem RA</label>
-      <label><input type="checkbox" name="torax_resp" value="MVBD com presença de ruidos adventícios (sibilos)"> MVBD com RA (sibilos)</label>
-      <label><input type="checkbox" name="torax_resp" value="MVBD com presença de ruidos adventícios (roncos)"> MVBD com RA (roncos)</label>
-      <label><input type="checkbox" name="torax_resp" value="MVBD com presença de ruidos adventícios (estertores)"> MVBD com RA (estertores)</label>
-    </div>
-  </div>
-
-  <div class="grupo-anatomico">
-    <label class="titulo-grupo">Aparelho Cardiovascular:</label>
-    <div class="opcoes-selecao">
-      <label><input type="checkbox" name="torax_cardio" value="BCNF em 2T (B1 e B2)"> BCNF em 2T (B1 e B2)</label>
-      <label><input type="checkbox" name="torax_cardio" value="ritmo cardíaco regular"> Ritmo cardíaco regular</label>
-      <label><input type="checkbox" name="torax_cardio" value="sem sopros"> Sem sopros</label>
-      <label><input type="checkbox" name="torax_cardio" value="taquicárdico"> Taquicárdico</label>
-      <label><input type="checkbox" name="torax_cardio" value="bradicárdico"> Bradicárdico</label>
-    </div>
-  </div>
-</div>
-
-<div class="step-box">
-  <div class="step-title">Passo 4: Abdome, Genitália e Eliminações</div>
-
-  <div class="sigla-list">
-    💡 <strong>Legenda de Siglas:</strong><br>
-    • <strong>RHA+:</strong> Ruídos Hidroaéreos Positivos (presentes).<br>
-    • <strong>Timpânico:</strong> Som característico de presença de gases.
-  </div>
-  <br>
-
-  <div class="grupo-anatomico">
-    <label class="titulo-grupo">Exame do Abdome:</label>
-    <div class="opcoes-selecao">
-      <label><input type="checkbox" name="abdome" value="abdome plano"> Abdome plano</label>
-      <label><input type="checkbox" name="abdome" value="abdome globoso"> Abdome globoso</label>
-      <label><input type="checkbox" name="abdome" value="abdome distendido"> Abdome distendido</label>
-      <label><input type="checkbox" name="abdome" value="flácido"> Flácido</label>
-      <label><input type="checkbox" name="abdome" value="indolor à palpação"> Indolor à palpação</label>
-      <label><input type="checkbox" name="abdome" value="doloroso à palpação"> Doloroso à palpação</label>
-      <label><input type="checkbox" name="abdome" value="timpânico"> Timpânico</label>
-      <label><input type="checkbox" name="abdome" value="RHA+"> RHA+</label>
-      <label><input type="checkbox" name="abdome" value="RHA diminuídos"> RHA diminuídos</label>
-      <label><input type="checkbox" name="abdome" value="RHA ausentes"> RHA ausentes</label>
-    </div>
-  </div>
-
-  <div class="grupo-anatomico">
-    <label class="titulo-grupo">Genitália e Eliminações:</label>
-    <div class="opcoes-selecao">
-      <label><input type="checkbox" name="genitalia_elim" value="genitália aparentemente íntegra"> Genitália aparentemente íntegra</label>
-      <label><input type="checkbox" name="genitalia_elim" value="eliminações intestinais e vesicais presentes e sem anormalidades"> Eliminações intestinais e vesicais presentes e sem anormalidades</label>
-      <label><input type="checkbox" name="genitalia_elim" value="eliminações vesicais via sonda vesical de demora (SVD)"> Diurese via SVD</label>
-      <label><input type="checkbox" name="genitalia_elim" value="urina colúrica"> Urina colúrica</label>
-      <label><input type="checkbox" name="genitalia_elim" value="urina com hematúria"> Urina com hematúria</label>
-      <label><input type="checkbox" name="genitalia_elim" value="eliminações intestinais ausentes"> Eliminações intestinais ausentes</label>
-    </div>
-  </div>
-</div>
-
-<div class="step-box">
-  <div class="step-title">Passo 5: Extremidades e Sinais Vitais</div>
-
-  <div class="grupo-anatomico">
-    <label class="titulo-grupo">Extremidades:</label>
-    <div class="opcoes-selecao">
-      <label><input type="checkbox" name="extremidades" value="MMSS e MMII íntegros"> MMSS e MMII íntegros</label>
-      <label><input type="checkbox" name="extremidades" value="bem perfundidos"> Bem perfundidos</label>
-      <label><input type="checkbox" name="extremidades" value="sem anormalidades"> Sem anormalidades</label>
-      <label><input type="checkbox" name="extremidades" value="MMSS íntegros"> MMSS íntegros</label>
-      <label><input type="checkbox" name="extremidades" value="MMII com edema (+1/+4)"> MMII com edema (+1/+4)</label>
-      <label><input type="checkbox" name="extremidades" value="MMII com edema (+2/+4)"> MMII com edema (+2/+4)</label>
-      <label><input type="checkbox" name="extremidades" value="MMII com edema (+3/+4)"> MMII com edema (+3/+4)</label>
-      <label><input type="checkbox" name="extremidades" value="MMII com edema (+4/+4)"> MMII com edema (+4/+4)</label>
-      <label><input type="checkbox" name="extremidades" value="sem lesões em membros"> Sem lesões em membros</label>
-    </div>
-  </div>
-
-  <div class="grupo-anatomico">
-    <label class="titulo-grupo">Sinais Vitais:</label>
-    <textarea id="ssvv_texto" rows="3" style="width: 100%;">Sinais vitais verificados: PA: 120x80 mmHg, Pulso: 78 bpm, Temp: 36.5 °C, SatO2: 98%.</textarea>
-  </div>
-</div>
-
-<button onclick="gerarEvolucao()">⚡ Gerar Evolução</button>
-
-<div style="margin-top:20px;">
-  <h3>Resultado da Evolução Pronta:</h3>
-  <textarea id="resultadoEvolucao" rows="8" style="width: 100%;" placeholder="Clique no botão acima para gerar a evolução formatada..."></textarea>
-</div>
-
-<script>
-function obterValoresSelecionados(nomeCampo) {
-    let checkboxes = document.querySelectorAll(`input[name="${nomeCampo}"]:checked`);
-    let valores = [];
-    checkboxes.forEach(cb => valores.push(cb.value));
-    return valores;
-}
-
-function gerarEvolucao() {
-    let partes = [];
-
-    // Passo 1
-    let egConsciencia = obterValoresSelecionados('eg_consciencia');
-    let egPele = obterValoresSelecionados('eg_pele');
-    let egResp = obterValoresSelecionados('eg_resp');
     
-    let passo1 = [].concat(egConsciencia, egPele, egResp);
-    if (passo1.length > 0) {
-        partes.push("Paciente " + passo1.join(", ") + ".");
-    }
+    <br>
+    <button class="secondary" onclick="abrirTela('home')">← Voltar</button>
+  </div>
+</section>
 
-    // Passo 2
-    let couro = obterValoresSelecionados('couro_cabeludo');
-    let pupilas = obterValoresSelecionados('pupilas');
-    let oral = obterValoresSelecionados('cavidade_oral');
-    
-    if (couro.length > 0) partes.push("Couro cabeludo " + couro.join(", ") + ".");
-    if (pupilas.length > 0) partes.push("Pupilas " + pupilas.join(", ") + ".");
-    if (oral.length > 0) partes.push("Cavidade oral/linfonodos: " + oral.join(", ") + ".");
-
-    // Passo 3
-    let toraxResp = obterValoresSelecionados('torax_resp');
-    let toraxCardio = obterValoresSelecionados('torax_cardio');
-    
-    if (toraxResp.length > 0) partes.push("Aparelho respiratório: " + toraxResp.join(", ") + ".");
-    if (toraxCardio.length > 0) partes.push("Aparelho cardiovascular: " + toraxCardio.join(", ") + ".");
-
-    // Passo 4
-    let abdome = obterValoresSelecionados('abdome');
-    let genElim = obterValoresSelecionados('genitalia_elim');
-    
-    if (abdome.length > 0) partes.push("Abdome " + abdome.join(", ") + ".");
-    if (genElim.length > 0) partes.push("Genitália/eliminações: " + genElim.join(", ") + ".");
-
-    // Passo 5
-    let extremidades = obterValoresSelecionados('extremidades');
-    let ssvv = document.getElementById('ssvv_texto').value.trim();
-
-    if (extremidades.length > 0) partes.push("Extremidades: " + extremidades.join(", ") + ".");
-    if (ssvv !== '') partes.push(ssvv);
-
-    // Monta o texto no Textarea
-    let resultadoArea = document.getElementById('resultadoEvolucao');
-    if (partes.length > 0) {
-        resultadoArea.value = partes.join(" ");
-    } else {
-        resultadoArea.value = "Nenhuma opção foi selecionada. Selecione os itens acima para gerar a evolução.";
-    }
-}
-</script>
 <!-- ================= BUSCA ================= -->
 <section id="buscar">
-<div class="card">
-<h2>🔍 Pesquise pelo sintoma</h2>
-<p>Digite a forma como o paciente normalmente falaria.</p>
-<input id="campoBusca" type="text" placeholder="Ex.: dor de cabeça, vômito com sangue, bexiga inchada..." oninput="pesquisar()">
-<p class="small">
-💡 Exemplos: <strong>dor de cabeça</strong>, <strong>falta de ar</strong>, <strong>vômito com sangue</strong>, <strong>bexiga inchada</strong>, <strong>dor ao urinar</strong>.
-</p>
-<select id="categoria" onchange="pesquisar()">
-<option value="">Todas as categorias</option>
-<option value="Neurológico">Neurológico</option>
-<option value="Respiratório">Respiratório</option>
-<option value="Cardiovascular">Cardiovascular</option>
-<option value="Urinário">Urinário</option>
-<option value="Gastrointestinal">Gastrointestinal</option>
-<option value="Exame físico">Exame físico</option>
-<option value="Geral/Musculoesquelético">Geral/Musculoesquelético</option>
-<option value="Cirúrgico/Procedimentos">Cirúrgico/Procedimentos</option>
-</select>
-<div id="resultados"></div>
-<br>
-<button class="secondary" onclick="abrirTela('home')">← Voltar</button>
-</div>
+  <div class="card">
+    <h2>🔍 Pesquise pelo sintoma</h2>
+    <p>Digite a forma como o paciente normalmente falaria.</p>
+    <input id="campoBusca" type="text" placeholder="Ex.: dor de cabeça, vômito com sangue, bexiga inchada..." oninput="pesquisar()">
+    <p class="small">
+      💡 Exemplos: <strong>dor de cabeça</strong>, <strong>falta de ar</strong>, <strong>vômito com sangue</strong>, <strong>bexiga inchada</strong>, <strong>dor ao urinar</strong>.
+    </p>
+    <select id="categoria" onchange="pesquisar()">
+      <option value="">Todas as categorias</option>
+      <option value="Neurológico">Neurológico</option>
+      <option value="Respiratório">Respiratório</option>
+      <option value="Cardiovascular">Cardiovascular</option>
+      <option value="Urinário">Urinário</option>
+      <option value="Gastrointestinal">Gastrointestinal</option>
+      <option value="Exame físico">Exame físico</option>
+      <option value="Geral/Musculoesquelético">Geral/Musculoesquelético</option>
+      <option value="Cirúrgico/Procedimentos">Cirúrgico/Procedimentos</option>
+    </select>
+    <div id="resultados"></div>
+    <br>
+    <button class="secondary" onclick="abrirTela('home')">← Voltar</button>
+  </div>
 </section>
 
 <!-- ================= MENU QUIZ ================= -->
 <section id="menuQuiz">
-<div class="card">
-<h2>🎯 Escolha o Modo de Quiz</h2>
-<p>Selecione o formato que deseja praticar hoje:</p>
+  <div class="card">
+    <h2>🎯 Escolha o Modo de Quiz</h2>
+    <p>Selecione o formato que deseja praticar hoje:</p>
 
-<div class="mode-card" onclick="iniciarQuiz(1)">
-<h3>1. Tradicional: Sintoma ➔ Termo Técnico</h3>
-<p class="small">Você lê o relato simples do paciente e escolhe o termo técnico correto.</p>
-</div>
+    <div class="mode-card" onclick="iniciarQuiz(1)">
+      <h3>1. Tradicional: Sintoma ➔ Termo Técnico</h3>
+      <p class="small">Você lê o relato simples do paciente e escolhe o termo técnico correto.</p>
+    </div>
 
-<div class="mode-card" onclick="iniciarQuiz(2)">
-<h3>2. Modo Inverso: Termo Técnico ➔ Linguagem do Paciente</h3>
-<p class="small">Você recebe o termo técnico (ex: Hemoptise) e identifica como o paciente se queixaria.</p>
-</div>
+    <div class="mode-card" onclick="iniciarQuiz(2)">
+      <h3>2. Modo Inverso: Termo Técnico ➔ Linguagem do Paciente</h3>
+      <p class="small">Você recebe o termo técnico (ex: Hemoptise) e identifica como o paciente se queixaria.</p>
+    </div>
 
-<div class="mode-card" onclick="iniciarQuiz(3)">
-<h3>3. Conceitual: Significado ➔ Termo Técnico</h3>
-<p class="small">Você lê a definição clínica formal e marca qual é o termo correspondente.</p>
-</div>
+    <div class="mode-card" onclick="iniciarQuiz(3)">
+      <h3>3. Conceitual: Significado ➔ Termo Técnico</h3>
+      <p class="small">Você lê a definição clínica formal e marca qual é o termo correspondente.</p>
+    </div>
 
-<button class="secondary" onclick="abrirTela('home')">← Voltar</button>
-</div>
+    <button class="secondary" onclick="abrirTela('home')">← Voltar</button>
+  </div>
 </section>
 
 <!-- ================= QUIZ TELA ================= -->
 <section id="quiz">
-<div class="card">
-<h2 id="tituloModoQuiz">🎯 Desafio dos Termos</h2>
-<div id="quizArea"></div>
-<button class="secondary" onclick="abrirTela('menuQuiz')">← Trocar Modo</button>
-</div>
+  <div class="card">
+    <h2 id="tituloModoQuiz">🎯 Desafio dos Termos</h2>
+    <div id="quizArea"></div>
+    <button class="secondary" onclick="abrirTela('menuQuiz')">← Trocar Modo</button>
+  </div>
 </section>
 
 <!-- ================= CAÇA ÀS FALHAS ================= -->
 <section id="revisaoProntuario">
-<div class="card">
-<h2>🕵️ Auditoria de Prontuário</h2>
-<p>Identifique o termo técnico utilizado incorretamente na anotação de enfermagem abaixo:</p>
-<div id="prontuarioArea"></div>
-<button class="secondary" onclick="abrirTela('home')">← Voltar</button>
-</div>
+  <div class="card">
+    <h2>🕵️ Auditoria de Prontuário</h2>
+    <p>Identifique o termo técnico utilizado incorretamente na anotação de enfermagem abaixo:</p>
+    <div id="prontuarioArea"></div>
+    <button class="secondary" onclick="abrirTela('home')">← Voltar</button>
+  </div>
 </section>
 
 <!-- ================= DESEMPENHO ================= -->
 <section id="desempenho">
-<div class="card">
-<h2>🏆 Meu desempenho</h2>
-<p>Acertos acumulados no sistema:</p>
-<div class="score" id="pontuacao">0</div>
-<p class="small">A pontuação fica salva neste navegador.</p>
-<button onclick="zerarPontuacao()">Zerar pontuação</button>
-<button class="secondary" onclick="abrirTela('home')">← Voltar</button>
-</div>
+  <div class="card">
+    <h2>🏆 Meu desempenho</h2>
+    <p>Acertos acumulados no sistema:</p>
+    <div class="score" id="pontuacao">0</div>
+    <p class="small">A pontuação fica salva neste navegador.</p>
+    <button onclick="zerarPontuacao()">Zerar pontuação</button>
+    <button class="secondary" onclick="abrirTela('home')">← Voltar</button>
+  </div>
 </section>
 </main>
 
 <footer>
-Material didático para simulação acadêmica<br>Enfermagem — Clínica Médica
+  Material didático para simulação acadêmica<br>Enfermagem — Clínica Médica
 </footer>
 
 <script>
-/* ===================================================== BANCO DE TERMOS ===================================================== */
+/* BANCO DE TERMOS */
 const termos = [
 {termo:"Cefaleia",significado:"Dor localizada na região da cabeça.",categoria:"Neurológico",pesquisa:"dor de cabeça"},
 {termo:"Hemiparesia",significado:"Diminuição da força muscular em um lado do corpo.",categoria:"Neurológico",pesquisa:"fraqueza em um lado do corpo"},
@@ -584,13 +417,13 @@ const termos = [
 {termo:"Hematêmese",significado:"Vômito com presença de sangue.",categoria:"Gastrointestinal",pesquisa:"vômito com sangue"},
 {termo:"Melena",significado:"Fezes negras relacionadas à presença de sangue digerido.",categoria:"Gastrointestinal",pesquisa:"fezes pretas"},
 {termo:"Hematoquezia",significado:"Eliminação de sangue vermelho vivo pelo reto.",categoria:"Gastrointestinal",pesquisa:"sangue vermelho vivo nas fezes"},
-{termo:"Epigastralgia", significado:"Dor localizada na região epigástrica (boca do estômago).", categoria:"Gastrointestinal", pesquisa:"dor na boca do estomago dor no estomago ardor epigastrio"}, // <-- A vírgula faltava aqui!
-{termo:"Distensão abdominal",significado:"Aumento do volume abdominal associado à sensação de estufamento.",categoria:"Gastrointestinal",pesquisa:"barriga inchada"},{termo:"Icterícia",significado:"Coloração amarelada da pele e das mucosas.",categoria:"Exame físico",pesquisa:"pele ou olhos amarelados"},
+{termo:"Epigastralgia", significado:"Dor localizada na região epigástrica (boca do estômago).", categoria:"Gastrointestinal", pesquisa:"dor na boca do estomago dor no estomago ardor epigastrio"},
+{termo:"Distensão abdominal",significado:"Aumento do volume abdominal associado à sensação de estufamento.",categoria:"Gastrointestinal",pesquisa:"barriga inchada"},
+{termo:"Icterícia",significado:"Coloração amarelada da pele e das mucosas.",categoria:"Exame físico",pesquisa:"pele ou olhos amarelados"},
 {termo:"Eupneico",significado:"Respiração sem evidência de dificuldade respiratória.",categoria:"Exame físico",pesquisa:"respiração normal"},
 {termo:"Afebril",significado:"Sem febre no momento da avaliação.",categoria:"Exame físico",pesquisa:"sem febre"},
 {termo:"Anictérico",significado:"Sem coloração amarelada da pele e das mucosas.",categoria:"Exame físico",pesquisa:"sem pele amarelada"},
 {termo:"Acianótico",significado:"Sem coloração azulada da pele ou das mucosas.",categoria:"Exame físico",pesquisa:"sem coloração azulada"},
-
 {termo:"Hipocorado",significado:"Apresenta palidez da pele ou das mucosas.",categoria:"Exame físico",pesquisa:"muito pálido"},
 {termo:"Normocárdico",significado:"Frequência cardíaca dentro do esperado.",categoria:"Exame físico",pesquisa:"batimentos cardíacos normais"},
 {termo:"Flatulência", significado:"Distensão do abdome provocada por gases intestinais.", categoria:"Gastrointestinal", pesquisa:"barriga inchada por gases estufamento gases"},
@@ -600,360 +433,81 @@ const termos = [
 {termo:"Mucopurulento", significado:"Que contém muco e pus.", categoria:"Respiratório", pesquisa:"catarro com pus catarro amarelo esverdeado muco e pus"},
 {termo:"Pirose", significado:"Sensação de queimadura ou ardor que parte do estômago, se estende ao longo do esôfago e chega à faringe.", categoria:"Gastrointestinal", pesquisa:"azia queimação no estômago ardor no peito"},
 {termo:"Piúria", significado:"Presença de pus na urina.", categoria:"Urinário", pesquisa:"pus na urina urina turva com pus"},
-{termo:"Polaciúria", significado:"Micção frequente, geralmente em pequenos volumes.", categoria:"Urinário", pesquisa:"urinar toda hora ir ao banheiro toda hora"},
 {termo:"Ptialismo", significado:"Salivação exagerada.", categoria:"Gastrointestinal", pesquisa:"salivar muito muita saliva babando"},
-{termo:"Sialorréia", significado:"Fluxo exagerado da saliva; salivação constante.", categoria:"Gastrointestinal", pesquisa:"salivação excessiva fluxo de saliva bando"},
+{termo:"Sialorréia", significado:"Fluxo exagerado da saliva; salivação constante.", categoria:"Gastrointestinal", pesquisa:"salivação excessiva fluxo de saliva bando"}
 ];
 
-/* ===================================================== ERROS DE PRONTUÁRIO ===================================================== */
+/* ERROS DE PRONTUÁRIO */
 const errosProntuario = [
-{
-texto: "Paciente deu entrada com queixa de tosse acompanhada de eliminação de sangue pelas vias aéreas. Registrado na evolução como <strong>HEMATÊMESE</strong>.",
-errado: "Hematêmese",
-correto: "Hemoptise",
-explicacao: "Hematêmese é o vômito de sangue vindo do trato gastrointestinal. Sangue vindo de tosse/vias respiratórias chama-se <strong>Hemoptise</strong>."
-},
-{
-texto: "Ao exame físico, o enfermeiro observou que as pupilas do paciente encontravam-se extremamente dilatas e registrou no prontuário que o paciente apresentava <strong>MIOSE</strong>.",
-errado: "Miose",
-correto: "Midríase",
-explicacao: "Miose é a contração da pupila. Pupilas dilatadas são chamadas de <strong>Midríase</strong>."
-},  
-
-{
-    texto: "Paciente relata dificuldade e dor ao engolir alimentos sólidos. No prontuário foi registrado que apresenta <strong>DISFONIA</strong>.",
-    errado: "Disfonia",
-    correto: "Odinofagia",
-    explicacao: "Disfonia é uma alteração da voz. Dor ao engolir é denominada <strong>Odinofagia</strong>."
-},
-{
-    texto: "Paciente apresenta dificuldade para engolir alimentos e líquidos. A evolução registra presença de <strong>ODINOFAGIA</strong>.",
-    errado: "Odinofagia",
-    correto: "Disfagia",
-    explicacao: "Odinofagia significa dor ao engolir. A dificuldade para engolir alimentos ou líquidos é denominada <strong>Disfagia</strong>."
-},
-{
-    texto: "Paciente apresenta voz rouca há aproximadamente três semanas. No prontuário consta <strong>AFASIA</strong>.",
-    errado: "Afasia",
-    correto: "Disfonia",
-    explicacao: "Afasia é uma alteração da linguagem. A alteração da qualidade da voz, como rouquidão, é denominada <strong>Disfonia</strong>."
-},
-{
-    texto: "Paciente apresenta perda completa da voz após procedimento cirúrgico. Foi registrado <strong>DISFAGIA</strong>.",
-    errado: "Disfagia",
-    correto: "Afonia",
-    explicacao: "Disfagia é dificuldade para engolir. A perda da voz é denominada <strong>Afonia</strong>."
-},
-{
-    texto: "Paciente apresenta dificuldade para articular as palavras, com fala lenta e pouco compreensível. A anotação registra <strong>AFASIA</strong>.",
-    errado: "Afasia",
-    correto: "Disartria",
-    explicacao: "Afasia está relacionada à alteração da linguagem. A dificuldade de articulação da fala por alteração motora é denominada <strong>Disartria</strong>."
-},
-{
-    texto: "Paciente apresenta dificuldade para compreender perguntas e para expressar adequadamente o que deseja falar. Foi registrado <strong>DISARTRIA</strong>.",
-    errado: "Disartria",
-    correto: "Afasia",
-    explicacao: "Disartria é uma alteração da articulação da fala. Alterações na compreensão e/ou expressão da linguagem são características de <strong>Afasia</strong>."
-},
-{
-    texto: "Paciente relata formigamento e sensação de 'agulhadas' nas mãos. O prontuário registra <strong>HEMIPARESIA</strong>.",
-    errado: "Hemiparesia",
-    correto: "Parestesia",
-    explicacao: "Hemiparesia significa diminuição da força em um lado do corpo. Formigamento, dormência ou sensação de 'agulhadas' são descritos como <strong>Parestesia</strong>."
-},
-{
-    texto: "Paciente apresenta diminuição da força no braço e na perna direitos após AVC. Foi registrado <strong>PARESTESIA</strong>.",
-    errado: "Parestesia",
-    correto: "Hemiparesia",
-    explicacao: "Parestesia corresponde a alterações da sensibilidade, como formigamento. A diminuição da força em um lado do corpo é denominada <strong>Hemiparesia</strong>."
-},
-{
-    texto: "Paciente apresenta perda completa dos movimentos do lado esquerdo do corpo. A evolução registra <strong>HEMIPARESIA</strong>.",
-    errado: "Hemiparesia",
-    correto: "Hemiplegia",
-    explicacao: "Hemiparesia é diminuição da força. A perda completa dos movimentos de um lado do corpo é denominada <strong>Hemiplegia</strong>."
-},
-{
-    texto: "Paciente apresenta falta de ar aos pequenos esforços. O registro de enfermagem descreve <strong>TAQUIPNEIA</strong>.",
-    errado: "Taquipneia",
-    correto: "Dispneia",
-    explicacao: "Taquipneia significa aumento da frequência respiratória. A sensação de dificuldade ou desconforto para respirar é denominada <strong>Dispneia</strong>."
-},
-{
-    texto: "Durante a avaliação, paciente apresenta 30 incursões respiratórias por minuto. O registro descreve <strong>DISPNEIA</strong>.",
-    errado: "Dispneia",
-    correto: "Taquipneia",
-    explicacao: "Dispneia é a sensação de dificuldade para respirar. O aumento da frequência respiratória é denominado <strong>Taquipneia</strong>."
-},
-{
-    texto: "Paciente refere falta de ar principalmente quando permanece deitado, apresentando melhora ao sentar-se. Foi registrado <strong>DISÚRIA</strong>.",
-    errado: "Disúria",
-    correto: "Ortopneia",
-    explicacao: "Disúria está relacionada à dor ou ardência ao urinar. A dificuldade respiratória que ocorre ou piora ao deitar é denominada <strong>Ortopneia</strong>."
-},
-{
-    texto: "Paciente apresenta tosse acompanhada de eliminação de sangue vermelho vivo. O prontuário registra <strong>HEMATÊMESE</strong>.",
-    errado: "Hematêmese",
-    correto: "Hemoptise",
-    explicacao: "Hematêmese é vômito com sangue. A eliminação de sangue proveniente das vias respiratórias durante a tosse é denominada <strong>Hemoptise</strong>."
-},
-{
-    texto: "Paciente apresenta vômito com presença de sangue escuro. Foi registrado <strong>HEMOPTISE</strong>.",
-    errado: "Hemoptise",
-    correto: "Hematêmese",
-    explicacao: "Hemoptise é a eliminação de sangue pelas vias respiratórias durante a tosse. Vômito com sangue é denominado <strong>Hematêmese</strong>."
-},
-{
-    texto: "Paciente apresenta fezes negras, brilhantes e de odor característico. A evolução registra presença de <strong>HEMATOQUEZIA</strong>.",
-    errado: "Hematoquezia",
-    correto: "Melena",
-    explicacao: "Hematoquezia corresponde à eliminação de sangue vermelho vivo pelo reto. Fezes negras decorrentes de sangue digerido são denominadas <strong>Melena</strong>."
-},
-{
-    texto: "Paciente apresenta eliminação de sangue vermelho vivo pelo ânus. O prontuário registra <strong>MELENA</strong>.",
-    errado: "Melena",
-    correto: "Hematoquezia",
-    explicacao: "Melena caracteriza-se por fezes negras associadas à presença de sangue digerido. A eliminação de sangue vermelho vivo pelo reto é denominada <strong>Hematoquezia</strong>."
-},
-{
-    texto: "Paciente apresenta dor intensa na região lombar, irradiando para a região abdominal. Foi registrado <strong>EPIGASTRALGIA</strong>.",
-    errado: "Epigastralgia",
-    correto: "Lombalgia",
-    explicacao: "Epigastralgia é dor localizada na região epigástrica. Dor localizada na região lombar é denominada <strong>Lombalgia</strong>."
-},
-{
-    texto: "Paciente refere dor localizada na região do peito, próxima ao precórdio. O registro descreve <strong>ODONTALGIA</strong>.",
-    errado: "Odontalgia",
-    correto: "Precordialgia",
-    explicacao: "Odontalgia é dor de origem dentária. Dor localizada na região precordial é denominada <strong>Precordialgia</strong>."
-},
-{
-    texto: "Paciente procura atendimento relatando dor intensa em um molar inferior. A anotação registra <strong>OTALGIA</strong>.",
-    errado: "Otalgia",
-    correto: "Odontalgia",
-    explicacao: "Otalgia é dor localizada no ouvido. Dor de origem dentária é denominada <strong>Odontalgia</strong>."
-},
-{
-    texto: "Paciente apresenta dor intensa no ouvido direito. O prontuário registra <strong>ODONTALGIA</strong>.",
-    errado: "Odontalgia",
-    correto: "Otalgia",
-    explicacao: "Odontalgia é dor de origem dentária. Dor localizada no ouvido é denominada <strong>Otalgia</strong>."
-},
-{
-    texto: "Paciente apresenta dor ao urinar, acompanhada de ardência durante a micção. Foi registrado <strong>POLACIÚRIA</strong>.",
-    errado: "Polaciúria",
-    correto: "Disúria",
-    explicacao: "Polaciúria corresponde ao aumento da frequência urinária. Dor ou ardência durante a micção é denominada <strong>Disúria</strong>."
-},
-{
-    texto: "Paciente relata necessidade de urinar várias vezes durante o dia, eliminando pequenos volumes. O registro apresenta <strong>DISÚRIA</strong>.",
-    errado: "Disúria",
-    correto: "Polaciúria",
-    explicacao: "Disúria corresponde à dor ou ardência ao urinar. O aumento da frequência das micções é denominado <strong>Polaciúria</strong>."
-},
-{
-    texto: "Paciente apresenta redução importante do volume urinário nas últimas 24 horas. A evolução registra <strong>ANÚRIA</strong>.",
-    errado: "Anúria",
-    correto: "Oligúria",
-    explicacao: "Anúria corresponde à ausência ou produção urinária extremamente reduzida. A redução do volume urinário é denominada <strong>Oligúria</strong>."
-},
-{
-    texto: "Paciente não apresentou eliminação de urina durante o período de observação. Foi registrado <strong>OLIGÚRIA</strong>.",
-    errado: "Oligúria",
-    correto: "Anúria",
-    explicacao: "Oligúria corresponde à redução do volume urinário. A ausência de produção urinária é denominada <strong>Anúria</strong>."
-},
-{
-    texto: "Paciente apresenta necessidade de levantar-se diversas vezes durante a noite para urinar. O prontuário registra <strong>POLIÚRIA</strong>.",
-    errado: "Poliúria",
-    correto: "Nictúria",
-    explicacao: "Poliúria corresponde ao aumento do volume urinário. A necessidade de urinar repetidamente durante a noite é denominada <strong>Nictúria</strong>."
-},
-{
-    texto: "Paciente apresenta produção de grande volume de urina ao longo do dia. Foi registrado <strong>NICTÚRIA</strong>.",
-    errado: "Nictúria",
-    correto: "Poliúria",
-    explicacao: "Nictúria é a necessidade de urinar durante a noite. O aumento do volume urinário é denominado <strong>Poliúria</strong>."
-},
-{
-    texto: "Paciente apresenta dificuldade para eliminar urina, com sensação de bexiga cheia e distensão suprapúbica. O registro descreve <strong>POLACIÚRIA</strong>.",
-    errado: "Polaciúria",
-    correto: "Retenção urinária",
-    explicacao: "Polaciúria significa aumento da frequência das micções. A incapacidade de esvaziar adequadamente a bexiga caracteriza <strong>Retenção urinária</strong>."
-},
-{
-    texto: "Durante o exame físico, observa-se distensão da bexiga na região suprapúbica. Foi registrado <strong>HEMATÚRIA</strong>.",
-    errado: "Hematúria",
-    correto: "Bexigoma",
-    explicacao: "Hematúria é a presença de sangue na urina. A distensão da bexiga por acúmulo de urina pode ser denominada <strong>Bexigoma</strong>."
-},
-{
-    texto: "Paciente apresenta coloração amarelada da pele e das escleras. O prontuário registra <strong>CIANOSE</strong>.",
-    errado: "Cianose",
-    correto: "Icterícia",
-    explicacao: "Cianose é a coloração azulada ou arroxeada da pele e mucosas. A coloração amarelada é denominada <strong>Icterícia</strong>."
-},
-{
-    texto: "Paciente apresenta coloração azulada nos lábios e extremidades. A evolução registra presença de <strong>ICTERÍCIA</strong>.",
-    errado: "Icterícia",
-    correto: "Cianose",
-    explicacao: "Icterícia é a coloração amarelada da pele e mucosas. A coloração azulada ou arroxeada é denominada <strong>Cianose</strong>."
-},
-{
-    texto: "Paciente apresenta palidez evidente da pele e das mucosas. Foi registrado que o paciente está <strong>ICTÉRICO</strong>.",
-    errado: "Ictérico",
-    correto: "Hipocorado",
-    explicacao: "Ictérico significa apresentar coloração amarelada. A palidez da pele e das mucosas é descrita como <strong>Hipocorado</strong>."
-},
-{
-    texto: "Paciente apresenta edema importante em membros inferiores. A evolução registra que está <strong>HIPOCORADO</strong>.",
-    errado: "Hipocorado",
-    correto: "Edemaciado",
-    explicacao: "Hipocorado refere-se à palidez da pele ou mucosas. A presença de edema pode ser descrita como <strong>Edemaciado</strong>."
-},
-{
-    texto: "Paciente apresenta temperatura corporal de 39,2 °C. O registro de enfermagem descreve o paciente como <strong>AFEBRIL</strong>.",
-    errado: "Afebril",
-    correto: "Febril",
-    explicacao: "Afebril significa ausência de febre. Temperatura corporal elevada compatível com febre caracteriza estado <strong>Febril</strong>."
-},
-{
-    texto: "Paciente apresenta ausência de febre durante toda a avaliação. A evolução registra que está <strong>FEBRIL</strong>.",
-    errado: "Febril",
-    correto: "Afebril",
-    explicacao: "Febril significa apresentar febre. Na ausência de febre, o paciente é descrito como <strong>Afebril</strong>."
-},
-{
-    texto: "Paciente apresenta frequência cardíaca de 118 bpm. O prontuário registra <strong>BRADICARDIA</strong>.",
-    errado: "Bradicardia",
-    correto: "Taquicardia",
-    explicacao: "Bradicardia corresponde à redução da frequência cardíaca. Frequência cardíaca elevada é denominada <strong>Taquicardia</strong>."
-},
-{
-    texto: "Paciente apresenta frequência cardíaca de 48 bpm. A evolução registra <strong>TAQUICARDIA</strong>.",
-    errado: "Taquicardia",
-    correto: "Bradicardia",
-    explicacao: "Taquicardia corresponde ao aumento da frequência cardíaca. Frequência cardíaca reduzida é denominada <strong>Bradicardia</strong>."
-},
-{
-    texto: "Paciente apresenta pressão arterial de 85/55 mmHg e tontura. Foi registrado quadro de <strong>HIPERTENSÃO</strong>.",
-    errado: "Hipertensão",
-    correto: "Hipotensão",
-    explicacao: "Hipertensão corresponde à elevação da pressão arterial. Pressão arterial reduzida é denominada <strong>Hipotensão</strong>."
-},
-{
-    texto: "Paciente apresenta pressão arterial persistentemente elevada. O registro descreve <strong>HIPOTENSÃO</strong>.",
-    errado: "Hipotensão",
-    correto: "Hipertensão",
-    explicacao: "Hipotensão corresponde à redução da pressão arterial. Elevação persistente da pressão arterial caracteriza <strong>Hipertensão</strong>."
-},
-{
-    texto: "Paciente relata enjoo e sensação de que irá vomitar. Foi registrado <strong>ÊMESE</strong>.",
-    errado: "Êmese",
-    correto: "Náusea",
-    explicacao: "Êmese corresponde ao ato de vomitar. A sensação desagradável que precede ou pode acompanhar o vômito é denominada <strong>Náusea</strong>."
-},
-{
-    texto: "Paciente apresentou eliminação do conteúdo gástrico pela boca. O registro descreve apenas <strong>NÁUSEA</strong>.",
-    errado: "Náusea",
-    correto: "Êmese",
-    explicacao: "Náusea é a sensação de vontade de vomitar. O ato de vomitar é denominado <strong>Êmese</strong>."
-},
-{
-    texto: "Paciente apresenta evacuações líquidas, frequentes e em grande número. Foi registrado <strong>CONSTIPAÇÃO</strong>.",
-    errado: "Constipação",
-    correto: "Diarreia",
-    explicacao: "Constipação corresponde à dificuldade ou redução da frequência das evacuações. Evacuações frequentes e líquidas caracterizam <strong>Diarreia</strong>."
-},
-{
-    texto: "Paciente apresenta dificuldade para evacuar, com fezes endurecidas e evacuações pouco frequentes. O prontuário registra <strong>DIARREIA</strong>.",
-    errado: "Diarreia",
-    correto: "Constipação",
-    explicacao: "Diarreia caracteriza-se por evacuações líquidas e frequentes. A dificuldade para evacuar, especialmente com fezes endurecidas, é compatível com <strong>Constipação</strong>."
-},
-{
-    texto: "Paciente apresenta perda involuntária de urina durante a tosse e os esforços. Foi registrado <strong>RETENÇÃO URINÁRIA</strong>.",
-    errado: "Retenção urinária",
-    correto: "Incontinência urinária",
-    explicacao: "Retenção urinária é a incapacidade de esvaziar a bexiga. A perda involuntária de urina caracteriza <strong>Incontinência urinária</strong>."
-},
-{
-    texto: "Paciente apresenta perda involuntária de fezes. O prontuário registra <strong>INCONTINÊNCIA URINÁRIA</strong>.",
-    errado: "Incontinência urinária",
-    correto: "Incontinência fecal",
-    explicacao: "Incontinência urinária refere-se à perda involuntária de urina. A perda involuntária de fezes é denominada <strong>Incontinência fecal</strong>."
-},
-{
-    texto: "Paciente apresenta dor muscular generalizada após esforço físico intenso. A evolução registra <strong>ARTRALGIA</strong>.",
-    errado: "Artralgia",
-    correto: "Mialgia",
-    explicacao: "Artralgia é dor localizada nas articulações. Dor localizada nos músculos é denominada <strong>Mialgia</strong>."
-},
-{
-    texto: "Paciente apresenta dor intensa nas articulações dos joelhos. Foi registrado <strong>MIALGIA</strong>.",
-    errado: "Mialgia",
-    correto: "Artralgia",
-    explicacao: "Mialgia é dor muscular. Dor localizada nas articulações é denominada <strong>Artralgia</strong>."
-},
-{
-    texto: "Paciente apresenta coceira intensa na pele, principalmente durante a noite. O prontuário registra <strong>ERITEMA</strong>.",
-    errado: "Eritema",
-    correto: "Prurido",
-    explicacao: "Eritema é uma vermelhidão da pele. A sensação de coceira é denominada <strong>Prurido</strong>."
-},
-{
-    texto: "Paciente apresenta vermelhidão localizada na pele após contato com determinado produto. Foi registrado <strong>PRURIDO</strong>.",
-    errado: "Prurido",
-    correto: "Eritema",
-    explicacao: "Prurido é a sensação de coceira. A vermelhidão da pele é denominada <strong>Eritema</strong>."
- },
-
-{
-texto: "Paciente do sexo masculino relata queimação e dor intensa ao urinar. A anotação descreve que o paciente apresenta <strong>POLACIÚRIA</strong>.",
-errado: "Polaciúria",
-correto: "Disúria",
-explicacao: "Polaciúria é o aumento da frequência urinária. Dor ou ardor ao urinar é <strong>Disúria</strong>."
-}
+{ texto: "Paciente deu entrada com queixa de tosse acompanhada de eliminação de sangue pelas vias aéreas. Registrado na evolução como <strong>HEMATÊMESE</strong>.", errado: "Hematêmese", correto: "Hemoptise", explicacao: "Hematêmese é o vômito de sangue vindo do trato gastrointestinal. Sangue vindo de tosse/vias respiratórias chama-se <strong>Hemoptise</strong>." },
+{ texto: "Ao exame físico, o enfermeiro observou que as pupilas do paciente encontravam-se extremamente dilatas e registrou no prontuário que o paciente apresentava <strong>MIOSE</strong>.", errado: "Miose", correto: "Midríase", explicacao: "Miose é a contração da pupila. Pupilas dilatadas são chamadas de <strong>Midríase</strong>." },
+{ texto: "Paciente relata dificuldade e dor ao engolir alimentos sólidos. No prontuário foi registrado que apresenta <strong>DISFONIA</strong>.", errado: "Disfonia", correto: "Odinofagia", explicacao: "Disfonia é uma alteração da voz. Dor ao engolir é denominada <strong>Odinofagia</strong>." },
+{ texto: "Paciente apresenta dificuldade para engolir alimentos e líquidos. A evolução registra presença de <strong>ODINOFAGIA</strong>.", errado: "Odinofagia", correto: "Disfagia", explicacao: "Odinofagia significa dor ao engolir. A dificuldade para engolir alimentos ou líquidos é denominada <strong>Disfagia</strong>." }
 ];
 
-/* ===================================================== NAVEGAÇÃO ===================================================== */
+/* NAVEGAÇÃO */
 function abrirTela(id){
     const secoes = document.querySelectorAll("section");
-    secoes.forEach(function(secao){
-        secao.classList.remove("active");
-    });
+    secoes.forEach(secao => secao.classList.remove("active"));
     document.getElementById(id).classList.add("active");
     window.scrollTo(0,0);
     if(id === "buscar"){ pesquisar(); }
     if(id === "desempenho"){ atualizarPontuacao(); }
 }
 
-/* ===================================================== GERADOR DE EVOLUÇÃO ===================================================== */
-function gerarEvolucao(){
-    const egC = document.getElementById("eg_consciencia").value;
-    const egP = document.getElementById("eg_pele").value;
-    const egR = document.getElementById("eg_resp").value;
-    const cefG = document.getElementById("cef_geral").value;
-    const cefO = document.getElementById("cef_oral").value;
-    const torR = document.getElementById("torax_resp").value;
-    const torC = document.getElementById("torax_cardio").value;
-    const abdG = document.getElementById("abd_geral").value;
-    const genE = document.getElementById("gen_elim").value;
-    const extS = document.getElementById("ext_sinais").value;
-    const ssvv = document.getElementById("ssvv_texto").value;
-
-    const textoFinal = `EVOLUÇÃO DE ENFERMAGEM\n\n` +
-    `PASSO 1 (ESTADO GERAL): Paciente encontra-se no momento da visita ${egC}, ${egP}, ${egR}.\n\n` +
-    `PASSO 2 (AO EXAME FÍSICO - CABEÇA E PESCOÇO): ${cefG} ${cefO}\n\n` +
-    `PASSO 3 (TÓRAX): ${torR} ${torC}\n\n` +
-    `PASSO 4 (ABDOME E GENITÁLIA): ${abdG} ${genE}\n\n` +
-    `PASSO 5 (EXTREMIDADES E SINAIS VITAIS): ${extS} ${ssvv}`;
-
-    document.getElementById("resultadoEvolucao").value = textoFinal;
+/* GERADOR DE EVOLUÇÃO */
+function obterValoresSelecionados(nomeCampo) {
+    let checkboxes = document.querySelectorAll(`input[name="${nomeCampo}"]:checked`);
+    let valores = [];
+    checkboxes.forEach(cb => valores.push(cb.value));
+    return valores;
 }
 
-/* ===================================================== PESQUISA ===================================================== */
+function gerarEvolucao() {
+    let partes = [];
+
+    // Passo 1
+    let egConsciencia = obterValoresSelecionados('eg_consciencia');
+    let egPele = obterValoresSelecionados('eg_pele');
+    let egResp = obterValoresSelecionados('eg_resp');
+    let passo1 = [].concat(egConsciencia, egPele, egResp);
+    if (passo1.length > 0) partes.push("Paciente " + passo1.join(", ") + ".");
+
+    // Passo 2
+    let couro = obterValoresSelecionados('couro_cabeludo');
+    let pupilas = obterValoresSelecionados('pupilas');
+    let oral = obterValoresSelecionados('cavidade_oral');
+    if (couro.length > 0) partes.push("Couro cabeludo " + couro.join(", ") + ".");
+    if (pupilas.length > 0) partes.push("Pupilas " + pupilas.join(", ") + ".");
+    if (oral.length > 0) partes.push("Cavidade oral/linfonodos: " + oral.join(", ") + ".");
+
+    // Passo 3
+    let toraxResp = obterValoresSelecionados('torax_resp');
+    let toraxCardio = obterValoresSelecionados('torax_cardio');
+    if (toraxResp.length > 0) partes.push("Aparelho respiratório: " + toraxResp.join(", ") + ".");
+    if (toraxCardio.length > 0) partes.push("Aparelho cardiovascular: " + toraxCardio.join(", ") + ".");
+
+    // Passo 4
+    let abdome = obterValoresSelecionados('abdome');
+    let genElim = obterValoresSelecionados('genitalia_elim');
+    if (abdome.length > 0) partes.push("Abdome " + abdome.join(", ") + ".");
+    if (genElim.length > 0) partes.push("Genitália/eliminações: " + genElim.join(", ") + ".");
+
+    // Passo 5
+    let extremidades = obterValoresSelecionados('extremidades');
+    let ssvv = document.getElementById('ssvv_texto').value.trim();
+    if (extremidades.length > 0) partes.push("Extremidades: " + extremidades.join(", ") + ".");
+    if (ssvv !== '') partes.push(ssvv);
+
+    let resultadoArea = document.getElementById('resultadoEvolucao');
+    if (partes.length > 0) {
+        resultadoArea.value = partes.join(" ");
+    } else {
+        resultadoArea.value = "Nenhuma opção foi selecionada. Selecione os itens acima para gerar a evolução.";
+    }
+}
+
+/* PESQUISA */
 function normalizar(texto){
     return texto.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"");
 }
@@ -963,6 +517,7 @@ function pesquisar(){
     const categoria = document.getElementById("categoria").value;
     const busca = normalizar(campo.value.trim());
     const resultados = document.getElementById("resultados");
+    
     let encontrados = termos.filter(function(item){
         const correspondeCategoria = !categoria || item.categoria === categoria;
         const correspondeBusca = !busca || 
@@ -976,91 +531,67 @@ function pesquisar(){
         resultados.innerHTML = `
         <div class="search-result">
         <strong>💡 Experimente pesquisar:</strong>
-        <p>dor de cabeça</p>
-        <p>falta de ar</p>
-        <p>vômito com sangue</p>
-        <p>tosse com sangue</p>
-        <p>bexiga inchada</p>
-        </div>
-        `;
+        <p>dor de cabeça, falta de ar, vômito com sangue, tosse com sangue, bexiga inchada</p>
+        </div>`;
         return;
     }
 
     if(encontrados.length === 0){
-        resultados.innerHTML = `
-        <div class="search-result">
-        ❌ Nenhum termo encontrado.
-        <p>Tente escrever o sintoma de outra forma.</p>
-        </div>
-        `;
+        resultados.innerHTML = `<div class="search-result">❌ Nenhum termo encontrado.<p>Tente escrever o sintoma de outra forma.</p></div>`;
         return;
     }
 
-    resultados.innerHTML = encontrados.map(function(item){
-        return `
+    resultados.innerHTML = encontrados.map(item => `
         <div class="termcard">
             <div class="term">${item.termo}</div>
             <span class="tag">${item.categoria}</span>
             <p><strong>Significado:</strong><br>${item.significado}</p>
             <p><strong>Você poderia pesquisar por:</strong><br>"${item.pesquisa}"</p>
         </div>
-        `;
-    }).join("");
+    `).join("");
 }
 
-/* ===================================================== QUIZ DINÂMICO ===================================================== */
+/* QUIZ DINÂMICO */
 let modoAtual = 1;
 let conjuntoPerguntas = [];
 let indicePergunta = 0;
 let pontuacao = Number(localStorage.getItem("pontuacaoClinica") || 0);
 
 function embaralhar(array) {
-    let arr = [...array];
-    return arr.sort(() => Math.random() - 0.5);
+    return [...array].sort(() => Math.random() - 0.5);
 }
 
 function gerarPerguntasModo(modo) {
     modoAtual = modo;
-    let lista = embaralhar(termos);
-    let selecao = lista.slice(0, 10);
+    let selecao = embaralhar(termos).slice(0, 10);
 
     return selecao.map(item => {
-        let incorretas = termos.filter(t => t.termo !== item.termo);
-        let distratores = embaralhar(incorretas).slice(0, 3);
+        let distratores = embaralhar(termos.filter(t => t.termo !== item.termo)).slice(0, 3);
 
         if (modo === 1) {
-            let opcoes = embaralhar([item.termo, distratores[0].termo, distratores[1].termo, distratores[2].termo]);
             return {
                 pergunta: `O paciente relata: <em>"${item.pesquisa}"</em>. Qual o termo técnico adequado?`,
                 resposta: item.termo,
-                opcoes: opcoes
+                opcoes: embaralhar([item.termo, distratores[0].termo, distratores[1].termo, distratores[2].termo])
             };
-        } 
-        else if (modo === 2) {
-            let opcoes = embaralhar([item.pesquisa, distratores[0].pesquisa, distratores[1].pesquisa, distratores[2].pesquisa]);
+        } else if (modo === 2) {
             return {
                 pergunta: `O que o paciente quer dizer quando o prontuário registra <strong>${item.termo.toUpperCase()}</strong>?`,
                 resposta: item.pesquisa,
-                opcoes: opcoes
+                opcoes: embaralhar([item.pesquisa, distratores[0].pesquisa, distratores[1].pesquisa, distratores[2].pesquisa])
             };
-        } 
-        else if (modo === 3) {
-            let opcoes = embaralhar([item.termo, distratores[0].termo, distratores[1].termo, distratores[2].termo]);
+        } else {
             return {
                 pergunta: `Qual termo técnico corresponde à definição: <em>"${item.significado}"</em>?`,
                 resposta: item.termo,
-                opcoes: opcoes
+                opcoes: embaralhar([item.termo, distratores[0].termo, distratores[1].termo, distratores[2].termo])
             };
         }
     });
 }
 
 function iniciarQuiz(modo) {
-    const titulos = {
-        1: "🎯 Modo 1: Sintoma ➔ Termo Técnico",
-        2: "🎯 Modo 2: Termo Técnico ➔ Linguagem do Paciente",
-        3: "🎯 Modo 3: Conceito ➔ Termo Técnico"
-    };
+    const titulos = { 1: "🎯 Modo 1: Sintoma ➔ Termo Técnico", 2: "🎯 Modo 2: Termo Técnico ➔ Linguagem do Paciente", 3: "🎯 Modo 3: Conceito ➔ Termo Técnico" };
     document.getElementById("tituloModoQuiz").textContent = titulos[modo];
     conjuntoPerguntas = gerarPerguntasModo(modo);
     indicePergunta = 0;
@@ -1075,28 +606,20 @@ function mostrarPergunta(){
     <p><strong>Questão ${indicePergunta + 1} de ${conjuntoPerguntas.length}</strong></p>
     <h3>${q.pergunta}</h3>
     <div id="opcoesQuiz"></div>
-    <div id="feedbackQuiz"></div>
-    `;
+    <div id="feedbackQuiz"></div>`;
 
     const opcoes = document.getElementById("opcoesQuiz");
-
-    q.opcoes.forEach(function(opcao){
+    q.opcoes.forEach(opcao => {
         const botao = document.createElement("button");
         botao.className = "option";
         botao.innerHTML = opcao;
-        botao.onclick = function(){
-            responder(botao, opcao, q.resposta);
-        };
+        botao.onclick = () => responder(botao, opcao, q.resposta);
         opcoes.appendChild(botao);
     });
 }
 
 function responder(botao, resposta, respostaCorreta){
-    const botoes = document.querySelectorAll("#opcoesQuiz button");
-    botoes.forEach(function(b){
-        b.disabled = true;
-    });
-
+    document.querySelectorAll("#opcoesQuiz button").forEach(b => b.disabled = true);
     const feedback = document.getElementById("feedbackQuiz");
 
     if(resposta === respostaCorreta){
@@ -1105,14 +628,13 @@ function responder(botao, resposta, respostaCorreta){
         localStorage.setItem("pontuacaoClinica", pontuacao);
         feedback.className = "feedback ok";
         feedback.innerHTML = "✅ <strong>Correto!</strong>";
-    }
-    else{
+    } else {
         botao.classList.add("wrong");
         feedback.className = "feedback bad";
         feedback.innerHTML = "❌ A resposta correta é: <strong>" + respostaCorreta + "</strong>";
     }
 
-    setTimeout(function(){
+    setTimeout(() => {
         indicePergunta++;
         if(indicePergunta >= conjuntoPerguntas.length){
             alert("Você concluiu esta rodada! Parabéns!");
@@ -1123,7 +645,7 @@ function responder(botao, resposta, respostaCorreta){
     }, 1500);
 }
 
-/* ===================================================== AUDITORIA DE PRONTUÁRIO ===================================================== */
+/* AUDITORIA DE PRONTUÁRIO */
 let indiceErroProntuario = 0;
 let listaProntuariosEmbaralhada = [];
 
@@ -1137,39 +659,27 @@ function iniciarRevisaoProntuario() {
 function exibirDesafioProntuario() {
     const area = document.getElementById("prontuarioArea");
     const caso = listaProntuariosEmbaralhada[indiceErroProntuario];
-
-    let opcoesCorretas = [caso.correto];
-    let distratores = termos.filter(t => t.termo !== caso.correto && t.termo !== caso.errado);
-    embaralhar(distratores);
-    opcoesCorretas.push(distratores[0].termo, distratores[1].termo, distratores[2].termo);
-    opcoesCorretas = embaralhar(opcoesCorretas);
+    let distratores = embaralhar(termos.filter(t => t.termo !== caso.correto && t.termo !== caso.errado)).slice(0, 3);
+    let opcoesCorretas = embaralhar([caso.correto, distratores[0].termo, distratores[1].termo, distratores[2].termo]);
 
     area.innerHTML = `
-    <div class="prontuario-box">
-        📝 <strong>Trecho da Anotação de Enfermagem:</strong><br><br>
-        "${caso.texto}"
-    </div>
+    <div class="prontuario-box">📝 <strong>Trecho da Anotação de Enfermagem:</strong><br><br>"${caso.texto}"</div>
     <p><strong>Qual é o termo técnico correto para substituir o erro registrado?</strong></p>
     <div id="opcoesProntuario"></div>
-    <div id="feedbackProntuario"></div>
-    `;
+    <div id="feedbackProntuario"></div>`;
 
     const conteinerOpcoes = document.getElementById("opcoesProntuario");
     opcoesCorretas.forEach(opcao => {
         const btn = document.createElement("button");
         btn.className = "option";
         btn.innerHTML = opcao;
-        btn.onclick = function() {
-            verificarRespostaProntuario(btn, opcao, caso.correto, caso.explicacao);
-        };
+        btn.onclick = () => verificarRespostaProntuario(btn, opcao, caso.correto, caso.explicacao);
         conteinerOpcoes.appendChild(btn);
     });
 }
 
 function verificarRespostaProntuario(botao, escolhida, correta, explicacao) {
-    const botoes = document.querySelectorAll("#opcoesProntuario button");
-    botoes.forEach(b => b.disabled = true);
-
+    document.querySelectorAll("#opcoesProntuario button").forEach(b => b.disabled = true);
     const feedback = document.getElementById("feedbackProntuario");
 
     if (escolhida === correta) {
@@ -1195,7 +705,7 @@ function verificarRespostaProntuario(botao, escolhida, correta, explicacao) {
     }, 3500);
 }
 
-/* ===================================================== PONTUAÇÃO ===================================================== */
+/* PONTUAÇÃO */
 function atualizarPontuacao(){
     document.getElementById("pontuacao").textContent = pontuacao;
 }
@@ -1206,7 +716,7 @@ function zerarPontuacao(){
     atualizarPontuacao();
 }
 
-/* ===================================================== INICIALIZAÇÃO ===================================================== */
 pesquisar();
 </script>
-</body></html>
+</body>
+</html>

@@ -76,6 +76,132 @@ footer{    text-align:center;    padding:25px;    color:#65767b;}
 <!-- ================= ROTEIRO DE EXAME FÍSICO (NOVO) ================= -->
 <section id="roteiroExame">
 <div class="card">
+    <style>
+/* Cole todo o código CSS aqui */
+.step-box {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.step-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 6px;
+}
+
+.small {
+    font-size: 0.85rem;
+    color: #64748b;
+    margin-bottom: 12px;
+}
+
+.grupo-anatomico {
+    margin-top: 14px;
+    margin-bottom: 14px;
+}
+
+.titulo-grupo {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #334155;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.opcoes-selecao {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.opcoes-selecao label {
+    display: inline-flex;
+    align-items: center;
+    background-color: #f1f5f9;
+    color: #334155;
+    padding: 8px 14px;
+    border-radius: 20px;
+    border: 1px solid #cbd5e1;
+    font-size: 0.88rem;
+    font-weight: 500;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.opcoes-selecao input[type="checkbox"] {
+    accent-color: #0284c7;
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+}
+
+.opcoes-selecao label:has(input[type="checkbox"]:checked) {
+    background-color: #e0f2fe;
+    border-color: #0284c7;
+    color: #0369a1;
+    font-weight: 600;
+}
+
+#ssvv_texto {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid #cbd5e1;
+    font-size: 0.9rem;
+    box-sizing: border-box;
+    margin-top: 6px;
+}
+
+#ssvv_texto:focus {
+    outline: none;
+    border-color: #0284c7;
+    box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
+}
+
+.sigla-list {
+    background-color: #fffbebfb;
+    border-left: 4px solid #f59e0b;
+    padding: 10px 12px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    color: #78350f;
+    line-height: 1.4;
+}
+
+@media (max-width: 600px) {
+    .step-box {
+        padding: 12px;
+        margin-bottom: 14px;
+    }
+
+    .opcoes-selecao {
+        gap: 6px;
+    }
+
+    .opcoes-selecao label {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 10px 12px;
+        font-size: 0.9rem;
+    }
+
+    .opcoes-selecao input[type="checkbox"] {
+        width: 18px;
+        height: 18px;
+    }
+}
+</style>
+
+<!-- AQUI COMEÇA O SEU CÓDIGO HTML -->
+<h2>📋 Guia e Gerador de Roteiro de Exame Físico</h2>
+...
 <h2>📋 Guia e Gerador de Roteiro de Exame Físico</h2>
 <p>Utilize o modelo estruturado passo a passo para construir a evolução de enfermagem:</p>
 

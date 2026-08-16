@@ -424,6 +424,8 @@ const termos = [
 {termo:"Lipotimia",significado:"Sensação de desmaio iminente sem perda completa da consciência.",categoria:"Neurológico",pesquisa:"tontura quase desmaio vista escura tontura com fraqueza"},
 {termo:"Vertigem",significado:"Sensação ilusória de rotação do próprio corpo ou do ambiente.",categoria:"Neurológico",pesquisa:"tontura tudo girando tontura rotatória"},
 {termo:"Ataxia",significado:"Falta de coordenação dos movimentos musculares voluntários.",categoria:"Neurológico",pesquisa:"falta de equilibrio andar trôpego marcha desgovernada"},
+{termo:"Diplopia",significado:"Visão dupla dos objetos devido a transtornos da coordenação dos músculos oculares.",categoria:"Neurológico",pesquisa:"visao dupla enxergar dois objetos imagem duplicada"},
+{termo:"Nistagmo",significado:"Oscilações e movimentos involuntários do globo ocular em torno de seus eixos.",categoria:"Neurológico",pesquisa:"tremulo nos olhos olho balançando movimento ocular involuntario"},
 
 // RESPIRATÓRIO
 {termo:"Dispneia",significado:"Sensação subjetiva de dificuldade ou desconforto respiratório.",categoria:"Respiratório",pesquisa:"falta de ar cansaço ao respirar respirar fundo com dificuldade"},
@@ -437,6 +439,7 @@ const termos = [
 {termo:"Eupneico",significado:"Padrão respiratório normal em frequência e ritmo.",categoria:"Respiratório",pesquisa:"respiração normal sem esforço"},
 {termo:"Expectoração",significado:"Expulsão de secreções do trato respiratório através da tosse.",categoria:"Respiratório",pesquisa:"colocar catarro para fora cuspir catarro"},
 {termo:"Tiragem intercostal",significado:"Retração dos espaços intercostais durante a inspiração violenta.",categoria:"Respiratório",pesquisa:"costelas afundando ao respirar esforço para respirar"},
+{termo:"Epistaxe",significado:"Fluxo de sangue pelas narinas; hemorragia nasal.",categoria:"Respiratório",pesquisa:"sangramento nasal sangue pelo nariz hemorragia nasal"},
 
 // CARDIOVASCULAR
 {termo:"Taquicardia",significado:"Frequência cardíaca acima dos limites normais (>100 bpm em adultos).",categoria:"Cardiovascular",pesquisa:"coração acelerado batedeira no peito coração disparado"},
@@ -447,6 +450,7 @@ const termos = [
 {termo:"Palpitação",significado:"Percepção consciente e desconfortável dos batimentos cardíacos.",categoria:"Cardiovascular",pesquisa:"coração falhando ou pulando batida no peito"},
 {termo:"Isquemia",significado:"Deficiência de suprimento sanguíneo arterial para determinado tecido.",categoria:"Cardiovascular",pesquisa:"falta de sangue no tecido irrigação prejudicada"},
 {termo:"Normocárdico",significado:"Frequência cardíaca dentro da faixa de normalidade (60-100 bpm).",categoria:"Cardiovascular",pesquisa:"batimentos normais pulso normal"},
+{termo:"Anasarca",significado:"Edema generalizado grave por todo o corpo.",categoria:"Cardiovascular",pesquisa:"inchaço generalizado corpo todo inchado edema grave"},
 
 // URINÁRIO
 {termo:"Disúria",significado:"Dor, ardor ou desconforto ao urinar.",categoria:"Urinário",pesquisa:"dor ao urinar ardência para xixi urinar queimando"},
@@ -473,12 +477,13 @@ const termos = [
 {termo:"Distensão abdominal",significado:"Aumento visível do volume abdominal por acúmulo de gases ou fluidos.",categoria:"Gastrointestinal",pesquisa:"barriga inchada abdomen estufado barriga grande"},
 {termo:"Flatulência",significado:"Eliminação acentuada de gases pelo trato gastrointestinal.",categoria:"Gastrointestinal",pesquisa:"gases peido estufamento por gases"},
 {termo:"Pirose",significado:"Sensação de queimação retrosternal derivada do refluxo ácido.",categoria:"Gastrointestinal",pesquisa:"azia queimação no estômago ardor subindo no peito"},
-{termo:"Ptialismo",significado:"Produção excessiva e hipersecretora de saliva.",categoria:"Gastrointestinal",pesquisa:"salivar muito muita saliva babando demais"},
+{termo:"Ptialismo",significado:"Produção excessiva e abundante de saliva.",categoria:"Gastrointestinal",pesquisa:"salivar muito muita saliva babando demais hipersalivação"},
 {termo:"Sialorréia",significado:"Incapacidade de reter saliva na boca, resultando no extravasamento involuntário.",categoria:"Gastrointestinal",pesquisa:"salivação constante baba caindo da boca"},
 {termo:"Constipação",significado:"Retenção de fezes, evacuação difícil ou diminuição da frequência fecal.",categoria:"Gastrointestinal",pesquisa:"prisão de ventre intestino preso ressecado cocô duro"},
 {termo:"Diarreia",significado:"Evacuação frequente de fezes líquidas ou amolecidas.",categoria:"Gastrointestinal",pesquisa:"barriga solta fezes liquidas caganeira desarranjo"},
 {termo:"Tenesmo",significado:"Sensação dolorosa e persistente de necessidade de evacuar sem sucesso.",categoria:"Gastrointestinal",pesquisa:"vontade de fazer cocô toda hora mas não sai nada"},
 {termo:"Ascite",significado:"Acúmulo anormal de líquido livre dentro da cavidade peritoneal.",categoria:"Gastrointestinal",pesquisa:"barriga d'água líquido no abdome barriga de água"},
+{termo:"Dispepsia",significado:"Desconforto digestivo epigástrico, sensação de indigestão ou empanturramento.",categoria:"Gastrointestinal",pesquisa:"ma digestao estomago pesado empanturrado indigestao"},
 
 // EXAME FÍSICO E GERAL
 {termo:"Icterícia",significado:"Coloração amarelada da pele, escleras e mucosas por acúmulo de bilirrubina.",categoria:"Exame físico",pesquisa:"pele amarela olhos amarelos icterico"},
@@ -487,6 +492,8 @@ const termos = [
 {termo:"Acianótico",significado:"Pele e mucosas com boa coloração rosada, sem estigmas de cianose.",categoria:"Exame físico",pesquisa:"sem coloração azulada rosado bem oxigenado"},
 {termo:"Hipocorado",significado:"Palidez de mucosas ou pele, sugerindo anemia ou hipoperfusão.",categoria:"Exame físico",pesquisa:"muito pálido descorado sem cor"},
 {termo:"Halitose",significado:"Odor desagradável ou fétido emanado da cavidade oral.",categoria:"Exame físico",pesquisa:"mau halito bafinho hálito ruim hálito fétido"},
+{termo:"Otorragia",significado:"Hemorragia ou saída de sangue pelo conduto auditivo.",categoria:"Exame físico",pesquisa:"sangue pelo ouvido sangramento no ouvido hemorragia auditiva"},
+{termo:"Caquexia",significado:"Estado mórbido caracterizado por magreza extrema, perda de peso e debilidade.",categoria:"Exame físico",pesquisa:"magreza extrema emagrecimento grave definhamento desnutricao"},
 {termo:"Prurido",significado:"Sensação desagradável na pele que provoca o desejo incontrolável de coçar.",categoria:"Geral/Musculoesquelético",pesquisa:"coceira na pele coceira intensa urticaria"},
 {termo:"Glútea",significado:"Referente ou pertencente à região das nádegas.",categoria:"Geral/Musculoesquelético",pesquisa:"nadegas bumbum região glútea"},
 {termo:"Astenia",significado:"Sensação de fraqueza física generalizada, perda de força e fadiga.",categoria:"Geral/Musculoesquelético",pesquisa:"fraqueza no corpo corpo mole moleza sem força"},
@@ -495,13 +502,12 @@ const termos = [
 
 // LESÕES E PELE
 {termo:"Escoriação",significado:"Perda superficial da epiderme por traumatismo friccional (arranhão).",categoria:"Lesões e Pele",pesquisa:"arranhão ralado na pele esfolado"},
-{termo:"Hematoma",significado:"Acúmulo localizado de sangue extravasado nos tecidos, formando tumefação.",categoria:"Lesões e Pele",pesquisa:"galo na cabeça manchas roxas com inchaço sangue preso"},
+{termo:"Hematoma",significado:"Acúmulo localizado de sangue extravasado nos tecidos, forming tumefação.",categoria:"Lesões e Pele",pesquisa:"galo na cabeça manchas roxas com inchaço sangue preso"},
 {termo:"Equimose",significado:"Mancha hemorrágica na pele resultante da rotura de capilares sem elevação.",categoria:"Lesões e Pele",pesquisa:"mancha roxa na pele pisadura macula roxa"},
 {termo:"Eritema",significado:"Vermelhidão na pele produzida por vasodilatação capilar.",categoria:"Lesões e Pele",pesquisa:"pele vermelha vermelhidão rubor"},
 {termo:"Laceração",significado:"Ferimento rasgado com bordas irregulares provocado por tração ou embotamento.",categoria:"Lesões e Pele",pesquisa:"corte rasgado rasgão na pele corte irregular"},
 {termo:"Pústula",significado:"Pequena elevação cutânea contendo exsudato purulento (pus).",categoria:"Lesões e Pele",pesquisa:"bolha de pus espinha com pus ferida amarela"}
 ];
-
 /* BANCO COMPLETO EXTENSO DE ERROS DE PRONTUÁRIO (CAÇA ÀS FALHAS - 15 CASOS) */
 const errosProntuario = [
 { texto: "Paciente deu entrada no pronto-socorro com queixa de tosse persistente acompanhada de eliminação de sangue vermelho pelas vias aéreas superiores. Registrado na evolução como <strong>HEMATÊMESE</strong>.", errado: "Hematêmese", correto: "Hemoptise", explicacao: "Hematêmese é o vômito de sangue vindo do trato gastrointestinal. Sangue vindo da tosse e vias respiratórias é chamado de <strong>Hemoptise</strong>." },

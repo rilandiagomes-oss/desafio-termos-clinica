@@ -200,8 +200,7 @@ footer{    text-align:center;    padding:25px;    color:#65767b;}
 </style>
 
 <!-- AQUI COMEÇA O SEU CÓDIGO HTML -->
-<h2>📋 Guia e Gerador de Roteiro de Exame Físico</h2>
-...
+
 <h2>📋 Guia e Gerador de Roteiro de Exame Físico</h2>
 <p>Utilize o modelo estruturado passo a passo para construir a evolução de enfermagem:</p>
 
@@ -405,10 +404,66 @@ footer{    text-align:center;    padding:25px;    color:#65767b;}
 <textarea id="resultadoEvolucao" rows="8" placeholder="Clique no botão acima para gerar a evolução formatada..."></textarea>
 </div>
 
-<button class="secondary" onclick="abrirTela('home')">← Voltar</button>
-</div>
-</section>
+<script>
+function obterValoresSelecionados(nomeCampo) {
+    let checkboxes = document.querySelectorAll(`input[name="${nomeCampo}"]:checked`);
+    let valores = [];
+    checkboxes.forEach(cb => valores.push(cb.value));
+    return valores;
+}
 
+function gerarEvolucao() {
+    let partes = [];
+
+    // Passo 1
+    let egConsciencia = obterValoresSelecionados('eg_consciencia');
+    let egPele = obterValoresSelecionados('eg_pele');
+    let egResp = obterValoresSelecionados('eg_resp');
+    
+    let passo1 = [].concat(egConsciencia, egPele, egResp);
+    if (passo1.length > 0) {
+        partes.push("Paciente " + passo1.join(", ") + ".");
+    }
+
+    // Passo 2
+    let couro = obterValoresSelecionados('couro_cabeludo');
+    let pupilas = obterValoresSelecionados('pupilas');
+    let oral = obterValoresSelecionados('cavidade_oral');
+    
+    if (couro.length > 0) partes.push("Couro cabeludo " + couro.join(", ") + ".");
+    if (pupilas.length > 0) partes.push("Pupilas " + pupilas.join(", ") + ".");
+    if (oral.length > 0) partes.push("Cavidade oral/linfonodos: " + oral.join(", ") + ".");
+
+    // Passo 3
+    let toraxResp = obterValoresSelecionados('torax_resp');
+    let toraxCardio = obterValoresSelecionados('torax_cardio');
+    
+    if (toraxResp.length > 0) partes.push("Aparelho respiratório: " + toraxResp.join(", ") + ".");
+    if (toraxCardio.length > 0) partes.push("Aparelho cardiovascular: " + toraxCardio.join(", ") + ".");
+
+    // Passo 4
+    let abdome = obterValoresSelecionados('abdome');
+    let genElim = obterValoresSelecionados('genitalia_elim');
+    
+    if (abdome.length > 0) partes.push("Abdome " + abdome.join(", ") + ".");
+    if (genElim.length > 0) partes.push("Genitália/eliminações: " + genElim.join(", ") + ".");
+
+    // Passo 5
+    let extremidades = obterValoresSelecionados('extremidades');
+    let ssvv = document.getElementById('ssvv_texto').value;
+
+    if (extremidades.length > 0) partes.push("Extremidades: " + extremidades.join(", ") + ".");
+    if (ssvv.trim() !== '') partes.push(ssvv.trim());
+
+    // Monta o texto no Textarea
+    let resultadoArea = document.getElementById('resultadoEvolucao');
+    if (partes.length > 0) {
+        resultadoArea.value = partes.join(" ");
+    } else {
+        resultadoArea.value = "Nenhuma opção foi selecionada. Selecione os itens acima para gerar a evolução.";
+    }
+}
+</script>
 <!-- ================= BUSCA ================= -->
 <section id="buscar">
 <div class="card">
